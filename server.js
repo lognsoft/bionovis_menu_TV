@@ -23,7 +23,7 @@ streams.forEach(stream => {
             '-f', 'mpegts',
             '-codec:v', 'mpeg1video',
             '-s', '2560x1440',  
-            '-b:v', '30000k',   
+            '-b:v', '50000k',   
             '-r', '60',        
             '-bf', '0',
             '-codec:a', 'mp2',
