@@ -14,14 +14,16 @@ streams.forEach(stream => {
     const server = new WebSocket.Server({ port: stream.port });
 
     server.on('connection', (socket) => {
+        const startTime = Date.now();
+        let dataSent = 0;
 
-        const ffmpeg = spawn('DriverVideoffmpeg', [
+        const ffmpeg = spawn('ffmpeg', [
             '-rtsp_transport', 'tcp',
             '-i', stream.url,
             '-f', 'mpegts',
             '-codec:v', 'mpeg1video',
-            '-s', '3840x2160',  
-            '-b:v', '15000k',   
+            '-s', '2560x1440',  
+            '-b:v', '30000k',   
             '-r', '60',        
             '-bf', '0',
             '-codec:a', 'mp2',
@@ -34,13 +36,39 @@ streams.forEach(stream => {
 
         // Enviando os dados convertidos para o WebSocket
         ffmpeg.stdout.on('data', (data) => {
+            dataSent += data.length;
             socket.send(data);
         });
+
+        // Tratamento de erro
+        ffmpeg.stderr.on('data', (data) => {
+            console.error(`ffmpeg stderr: ${data}`);
+        });
+
+        ffmpeg.on('error', (error) => {
+            console.error(`FFmpeg process error: ${error.message}`);
+        });
+
+        ffmpeg.on('exit', (code, signal) => {
+            console.log(`FFmpeg process exited with code ${code} and signal ${signal}`);
+        });
+
+        // Log periódicos da conexão
+        const logInterval = setInterval(() => {
+            const elapsedTime = (Date.now() - startTime) / 1000;
+            console.log(`Conexão WebSocket está aberta há ${elapsedTime} segundos`);
+            console.log(`Dados enviados: ${(dataSent / (1024 * 1024)).toFixed(2)} MB`);
+            console.log(`Estado do WebSocket: ${socket.readyState}`);
+        }, 10000); // Log a cada 10 segundos
 
         // Finalizando o processo do FFmpeg quando a conexão WebSocket é fechada
         socket.on('close', () => {
             ffmpeg.kill('SIGINT');
+            clearInterval(logInterval);
+        });
+
+        socket.on('error', (err) => {
+            console.error('WebSocket error: ', err);
         });
     });
 });
-
