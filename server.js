@@ -4,6 +4,7 @@ const { spawn } = require('child_process');
 // Configurações das câmeras
 const streams = [
     { url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0', port: 8082 },
+    { url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0', port: 8083 },
     // Adicione outros streams aqui
 ];
 
