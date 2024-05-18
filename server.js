@@ -14,19 +14,36 @@ streams.forEach(stream => {
     const server = new WebSocket.Server({ port: stream.port });
     server.on('connection', (socket) => {
         console.log(`Cliente conectado ao WebSocket na porta ${stream.port}`);
+        // const ffmpeg = spawn('ffmpeg', [
+        //     '-rtsp_transport', 'tcp',
+        //     '-i', stream.url,
+        //     '-f', 'mpegts',
+        //     '-codec:v', 'mpeg1video',  
+        //     '-s', '2560x1440',         
+        //     '-b:v', '50000k',          
+        //     '-r', '60',                
+        //     '-bf', '0',
+        //     '-codec:a', 'mp2',         
+        //     '-ar', '48000',            
+        //     '-ac', '2',                
+        //     '-b:a', '320k',            
+        //     '-f', 'mpegts',
+        //     'pipe:1'
+        // ]);
+
         const ffmpeg = spawn('ffmpeg', [
             '-rtsp_transport', 'tcp',
             '-i', stream.url,
             '-f', 'mpegts',
-            '-codec:v', 'mpeg1video',  
-            '-s', '2560x1440',         
-            '-b:v', '50000k',          
-            '-r', '60',                
+            '-codec:v', 'mpeg1video',
+            '-s', '2560x1440',
+            '-b:v', '100000k',
+            '-r', '60',
             '-bf', '0',
-            '-codec:a', 'mp2',         
-            '-ar', '48000',            
-            '-ac', '2',                
-            '-b:a', '320k',            
+            '-codec:a', 'mp2',
+            '-ar', '48000',
+            '-ac', '2',
+            '-b:a', '320k',
             '-f', 'mpegts',
             'pipe:1'
         ]);
