@@ -1,5 +1,6 @@
 const WebSocket = require('ws');
 const { spawn } = require('child_process');
+const http = require('http');
 
 // Configurações das câmeras
 const streams = [
@@ -8,32 +9,11 @@ const streams = [
     // Adicione outros streams aqui
 ];
 
-// Para cada câmera, criamos um servidor WebSocket e usamos o FFmpeg para capturar e converter o stream
+// Iniciando servidores WebSocket para cada câmera
 streams.forEach(stream => {
     const server = new WebSocket.Server({ port: stream.port });
-
     server.on('connection', (socket) => {
-        const startTime = Date.now();
-        let dataSent = 0;
         console.log(`Cliente conectado ao WebSocket na porta ${stream.port}`);
-
-        // const ffmpeg = spawn('ffmpeg', [
-        //     '-rtsp_transport', 'tcp',
-        //     '-i', stream.url,
-        //     '-f', 'mpegts',
-        //     '-codec:v', 'mpeg1video',  
-        //     '-s', '3840x2160',         
-        //     '-b:v', '150000k',          
-        //     '-r', '30',                
-        //     '-bf', '0',
-        //     '-codec:a', 'mp2',         
-        //     '-ar', '48000',            
-        //     '-ac', '2',                
-        //     '-b:a', '320k',            
-        //     '-f', 'mpegts',
-        //     'pipe:1'
-        // ]);
-
         const ffmpeg = spawn('ffmpeg', [
             '-rtsp_transport', 'tcp',
             '-i', stream.url,
@@ -51,14 +31,10 @@ streams.forEach(stream => {
             'pipe:1'
         ]);
 
-        // Enviando os dados convertidos para o WebSocket
         ffmpeg.stdout.on('data', (data) => {
-            dataSent += data.length;
-            console.log("Enviando dados para o WebSocket:", data.length);
             socket.send(data, { binary: true });
         });
 
-        // Tratamento de erro
         ffmpeg.stderr.on('data', (data) => {
             console.error(`ffmpeg stderr: ${data}`);
         });
@@ -71,23 +47,29 @@ streams.forEach(stream => {
             console.log(`FFmpeg process exited with code ${code} and signal ${signal}`);
         });
 
-        // Log periódicos da conexão
-        const logInterval = setInterval(() => {
-            const elapsedTime = (Date.now() - startTime) / 1000;
-            console.log(`Conexão WebSocket está aberta há ${elapsedTime} segundos`);
-            console.log(`Dados enviados: ${(dataSent / (1024 * 1024)).toFixed(2)} MB`);
-            console.log(`Estado do WebSocket: ${socket.readyState}`);
-        }, 10000); // Log a cada 10 segundos
-
-        // Finalizando o processo do FFmpeg quando a conexão WebSocket é fechada
         socket.on('close', () => {
             console.log("Cliente desconectado do WebSocket");
             ffmpeg.kill('SIGINT');
-            clearInterval(logInterval);
         });
 
         socket.on('error', (err) => {
             console.error('WebSocket error: ', err);
         });
     });
+});
+
+// Criando um servidor HTTP para listar as portas
+const server = http.createServer((req, res) => {
+    if (req.url === '/ports') {
+        const ports = streams.map(stream => stream.port);
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(ports));
+    } else {
+        res.writeHead(404);
+        res.end('Not Found');
+    }
+});
+
+server.listen(3000, () => {
+    console.log('Servidor HTTP ouvindo na porta 3000');
 });
