@@ -453,7 +453,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         timer:300,
         routes:[
             {
-                pathname:"Vídeo Completo",
+                pathname:"Complete Video",
                 color: "#046282",
                 video:videoInstitucional,
                 // subRoutes:[
