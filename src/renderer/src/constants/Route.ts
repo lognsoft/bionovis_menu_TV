@@ -147,7 +147,23 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:processosProdutivos,
         color:"#00a7de",
         timer:300,
-        routes:[{
+        routes:[
+            {
+                pathname:"Vídeo Completo",
+                color: "#046282",
+                video:videoInstitucional,
+                // subRoutes:[
+                //     {
+                //         path:"/cams/streams-inoculo",
+                //         pathname:"Live Cameras"
+                //     },
+                //     {
+                //         path:"/videos/videos-inoculo",
+                //         pathname:"Camera Recording"
+                //     },
+                // ]
+            },
+            {
             pathname:"Inóculo",
             color: "#046282",
             video:"",
@@ -436,6 +452,21 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         color:"#00a7de",
         timer:300,
         routes:[
+            {
+                pathname:"Vídeo Completo",
+                color: "#046282",
+                video:videoInstitucional,
+                // subRoutes:[
+                //     {
+                //         path:"/cams/streams-inoculo",
+                //         pathname:"Live Cameras"
+                //     },
+                //     {
+                //         path:"/videos/videos-inoculo",
+                //         pathname:"Camera Recording"
+                //     },
+                // ]
+            },
             {
                 pathname:"Inoculum",
                 color: "#046282",

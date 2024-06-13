@@ -2,7 +2,7 @@ import IStartPage,{ IStart } from "@renderer/types/IStartPage";
 
 const PortugueseContent:IStart = {
     title: "BEM-VINDO!",
-    message: "Estamos muito<br/>felizes por você<br/>estar fazendo<br/>parte dessa<br/>experiência",
+    message: "Estamos muito<br/>felizes por você<br/>fazer parte<br/>dessa experiência",
     interaction: "clique na mandala para começar",
     close:"Sair",
 }

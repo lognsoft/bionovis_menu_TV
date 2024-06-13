@@ -24,7 +24,7 @@ onMounted(() => {
         <section class="py-[100px]">
             <div class="container mx-auto px-3">
                 <h1 class="title w-full">{{ VideosPage[language] }}</h1>
-                <div class="grid grid-cols-4 gap-3">
+                <div class="grid grid-cols-4 gap-3 mt-[6cm]">
                     <RouterLink class="link-video" to="/video">
                         <img :src="video" alt="Video">
                         <span>Vídeo</span>
