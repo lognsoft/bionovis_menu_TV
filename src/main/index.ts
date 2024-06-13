@@ -127,7 +127,7 @@ function startServer() {
             default: "PRODUÇÃO | BANCO DE CÉLULAS",
             english: "PRODUCTION | CELL BANK"
         },
-        url: 'rtsp://tv:Bionovis@2024tv@172.16.0.56:554/cam/realmonitor?channel=1&subtype=0',
+        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
         port: 8085
     },
     {
@@ -179,7 +179,7 @@ function startServer() {
             default: "PRODUÇÃO | CORREDOR SALAS DE REUNIÕES",
             english: "PRODUCTION | MEETING ROOMS HALLWAY"
         },
-        url: 'rtsp://tv:Bionovis@2024tv@172.16.0.10:554/cam/realmonitor?channel=1&subtype=0',
+        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
         port: 8097
     },
     {
@@ -213,7 +213,7 @@ function startServer() {
             default: "FORMULAÇÃO E ENVASE | LAVAGEM",
             english: "FORMULATION AND FILLING | WASHING"
         },
-        url: 'rtsp://tv:Bionovis@2024tv@172.16.0.36:554/cam/realmonitor?channel=1&subtype=0',
+        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
         port: 8101
     },
     {
@@ -255,7 +255,7 @@ function startServer() {
             default: "EMBALAGEM SECUNDÁRIA | BAIA 02 (FUTURA)",
             english: "SECONDARY PACKAGING | BAY 02 (FUTURE)"
         },
-        url: 'rtsp://tv:Bionovis@2024tv@172.16.0.7:554/cam/realmonitor?channel=1&subtype=0',
+        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
         port: 8106
     },
     {
@@ -289,7 +289,7 @@ function startServer() {
             default: "LOGÍSTICA | CÂMARA FRIA",
             english: "LOGISTICS | COLD CHAMBER"
         },
-        url: 'rtsp://tv:Bionovis2024tv@172.16.0.127:554/cam/realmonitor?channel=1&subtype=0',
+        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
         port: 8110
     },
     {
@@ -339,7 +339,7 @@ function startServer() {
           default: "CQ FÍSICO QUÍMICO | BANCADAS",
           english: "PHYSICO-CHEMICAL QC | BENCHES"
       },
-      url: 'rtsp://tv:Bionovis@2024tv@172.16.0.85:554/cam/realmonitor?channel=1&subtype=0',
+      url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
       port: 8082
     },
     {
