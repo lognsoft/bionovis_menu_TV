@@ -153,7 +153,7 @@ function startServer() {
             default: "PRODUÇÃO | RECUPERAÇÃO PRIMÁRIA",
             english: "PRODUCTION | PRIMARY RECOVERY"
         },
-        url: 'rtsp://tv:Bionovis@2024tv@172.16.0.17:554/cam/realmonitor?channel=1&subtype=0',
+        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
         port: 8088
     },
     {
@@ -365,7 +365,7 @@ function startServer() {
     // { url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0', port: 8095 },
   ]
 
-  const streams = [...streamsPreparations, ...streamsUpstreams];
+  const streams = [...streamsPreparations, ...streamsUpstreams, ...streamsAreaPassagem, ...streamsFillAndFinish, ...streamsEmbalagemSecundaria, ...streamsLogistica, ...streamsQualidade];
 
   streams.forEach(stream => {
     const server = new websocket.Server({ port: stream.port });
