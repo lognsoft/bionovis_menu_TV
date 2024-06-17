@@ -28,7 +28,8 @@ function closeVideo(){
 
 <template>
     <div class="relative w-full">
-        <video class="player-video" :src="props.video" controls autoplay></video>
+        <!-- <video class="player-video" :src="props.video" controls autoplay></video> -->
+        <iframe src="https://player.vimeo.com/video/958364640?h=66f387e677" class="player-iframe" frameborder="0" allow="autoplay;"></iframe>
         <div class="close-video" @click="closeVideo" title="Fechar Vídeo">
             <CloseBold/>
         </div>
@@ -38,6 +39,11 @@ function closeVideo(){
 <style scoped>
     .player-video{
         @apply w-full h-full relative object-cover;
+    }
+    .player-iframe{
+        @apply
+        w-full
+        aspect-video
     }
     .close-video{
         @apply absolute bottom-[90px] right-[26px] text-white text-4xl cursor-pointer bg-[#222327] rounded-full p-[4px];

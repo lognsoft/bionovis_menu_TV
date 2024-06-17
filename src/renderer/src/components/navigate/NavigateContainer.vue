@@ -37,7 +37,7 @@ function closeVideo(){
 }
 </script>
 <template>
-    <div class="z-[60] fixed top-0 left-0 bg-black flex items-center justify-center w-full h-screen" v-show="flagVideo && video !== ''">
+    <div class="z-[60] fixed top-0 left-0 bg-black flex items-center justify-center w-full h-screen" v-if="flagVideo && video !== ''">
         <Player :video="video" :on-custom-event="closeVideo"/>
     </div>
     <div class="container-menu">

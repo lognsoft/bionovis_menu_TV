@@ -22,6 +22,7 @@ async function getCams():Promise<void>{
         }
     })
     const res:Array<IStream> = await req.json();
+    console.log(res);
     ports.value = res;
 }
 

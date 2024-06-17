@@ -5,9 +5,9 @@ import ImgvideoInstitucional from "@renderer/assets/images/icons/icone_tv.svg";
 import apresentacoesDiversas from "@renderer/assets/images/icons/icone_tubo1.svg";
 
 
-import videoInstitucional from "@renderer/assets/videos/institucional.mp4";
-import videoInstitucionalLegenda from "@renderer/assets/videos/institucional.mp4";
-import videoInstitucionalEnglish from "@renderer/assets/videos/institucional-english.mp4";
+// import videoInstitucional from "@renderer/assets/videos/institucional.mp4";
+// import videoInstitucionalLegenda from "@renderer/assets/videos/institucional.mp4";
+// import videoInstitucionalEnglish from "@renderer/assets/videos/institucional-english.mp4";
 
 interface RoutesLanguages{
     default:ReadonlyArray<IRoutes>;
@@ -151,7 +151,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Vídeo Completo",
                 color: "#046282",
-                video:videoInstitucional,
+                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional,
                 // subRoutes:[
                 //     {
                 //         path:"/cams/streams-inoculo",
@@ -260,7 +260,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:ImgvideoInstitucional,
         color:"#595959",
         timer:300,
-        video:videoInstitucional
+        video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional
         // routes:[{
         //     pathname:"Arquivos",
         //     color: "#008a94",
@@ -286,7 +286,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Com Legenda",
                 color: "#008a94",
-                video:videoInstitucionalLegenda,
+                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalLegenda,
                 // subRoutes:[
                     // {
                     //     path:"/arquivos/loremIpsum2",
@@ -301,7 +301,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Sem Legenda",
                 color: "#008a94",
-                video:videoInstitucional,
+                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional,
                 // subRoutes:[
                 //     {
                 //         path:"/arquivos/loremIpsum2",
@@ -455,7 +455,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Complete Video",
                 color: "#046282",
-                video:videoInstitucional,
+                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional,
                 // subRoutes:[
                 //     {
                 //         path:"/cams/streams-inoculo",
@@ -565,7 +565,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:ImgvideoInstitucional,
         color:"#595959",
         timer:300,
-        video:videoInstitucionalEnglish,
+        video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalEnglish,
         // routes:[{
         //     pathname:"Files",
         //     color: "#008a94",
@@ -591,7 +591,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"With Subtitles",
                 color: "#008a94",
-                video:videoInstitucionalEnglish,
+                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalEnglish,
                 // subRoutes:[
                     // {
                     //     path:"/arquivos/loremIpsum2",
@@ -606,7 +606,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Without Subtitles",
                 color: "#008a94",
-                video:videoInstitucionalEnglish,
+                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalEnglish,
                 // subRoutes:[
                 //     {
                 //         path:"/arquivos/loremIpsum2",
