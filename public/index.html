@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+body{
+    background-color: black;
+}
+
+        .videoWrapper {
+            display: inline-block;
+            width: 45%;
+            margin: 2%;
+            position: relative;
+            cursor: pointer;
+            border: solid 1px #fff;
+        }
+
+        video {
+            width: 100%;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            background-size: cover; /* Garante que a imagem cubra toda a div */
+            background-position: center; /* Centraliza a imagem */
+        }
+
+        .videoTitle {
+            font-size: 50px;
+            margin-top: 15px;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal video {
+            width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="newVideoNotification" onclick="fetchVideos()"></div>
+
+    <!-- Seletor de fonte de vídeo -->
+    <select id="videoSource" onchange="changeSource()">
+        <option value="corredor">Corredor</option>
+        <option value="sala">Sala</option>
+    </select>
+
+    <div id="videoContainer"></div>
+
+    <!-- Modal para reprodução de vídeo -->
+    <div id="modal" onclick="closeModal()">
+        <video controls autoplay></video>
+    </div>
+
+    <script>
+let currentSource = 'corredor';  // Inicializa com 'corredor' como fonte padrão
+
+function changeSource() {
+    const sourceSelector = document.getElementById('videoSource');
+    currentSource = sourceSelector.value;
+    console.log("Mudando fonte de vídeo para:", currentSource);  // Log para depuração
+    fetchVideos();  // Chama fetchVideos quando a fonte muda
+}
+
+async function fetchVideos() {
+    console.log(`Buscando vídeos de /${currentSource}`);  // Log para depuração
+    const response = await fetch(`/${currentSource}`);
+    const videos = await response.json();
+
+    const videoContainer = document.getElementById('videoContainer');
+    const existingVideos = videoContainer.querySelectorAll('.videoWrapper');
+
+    // Cria um conjunto de vídeos atualmente mostrados para rápida verificação
+    const displayedVideos = new Set();
+    existingVideos.forEach(videoWrapper => {
+        const videoSrc = videoWrapper.querySelector('video').src.split('/').pop();
+        displayedVideos.add(videoSrc);
+    });
+
+    // Remove vídeos que não estão mais na lista
+    existingVideos.forEach(videoWrapper => {
+        const videoSrc = videoWrapper.querySelector('video').src.split('/').pop();
+        if (!videos.includes(videoSrc)) {
+            videoContainer.removeChild(videoWrapper);
+        }
+    });
+
+    // Adiciona novos vídeos que não estão atualmente no DOM
+    videos.forEach(video => {
+        if (!displayedVideos.has(video)) {
+            const videoWrapper = document.createElement('div');
+            videoWrapper.className = 'videoWrapper';
+
+            const videoElem = document.createElement('video');
+            videoElem.src = `${currentSource}/${video}`;
+            videoElem.controls = true;
+
+            const cover = document.createElement('div');
+            cover.className = 'cover';
+            cover.style.backgroundImage = `url('${currentSource}/${video.replace('.mp4', '.jpg')}')`;
+            cover.onclick = function(event) {
+                event.stopPropagation();
+                openModal(`${currentSource}/${video}`);
+            };
+
+            const playSymbol = document.createElement('div');
+            const videoTitle = document.createElement('div');
+            videoTitle.className = 'videoTitle';
+            videoTitle.innerText = video.split(".")[0];
+
+            cover.appendChild(playSymbol);
+            cover.appendChild(videoTitle);
+            videoWrapper.appendChild(videoElem);
+            videoWrapper.appendChild(cover);
+
+            videoContainer.appendChild(videoWrapper);
+        }
+    });
+}
+
+function openModal(src) {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+    modal.children[0].src = src;
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+    modal.children[0].pause();
+}
+
+fetchVideos(); // Chama a função inicialmente com o valor padrão
+setInterval(fetchVideos, 10); // Atualiza os vídeos a cada 10 segundos
+
+    </script>
+
+</body>
+
+</html>
