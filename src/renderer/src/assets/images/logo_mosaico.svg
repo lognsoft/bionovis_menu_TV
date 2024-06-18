@@ -2,9 +2,9 @@
 <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 976.47 977.45">
   <defs>
     <style>
-    #Camada_1 {
-      filter: drop-shadow(0px 0px 120px #01e4fa);
-    }
+      #Camada_1 {
+        filter: drop-shadow(0px 0px 120px #01e4fa);
+      }
       .cls-1 {
         fill: #71bde1;
       }
