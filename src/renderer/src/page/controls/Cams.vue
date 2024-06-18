@@ -39,7 +39,7 @@ onMounted(() => {
                 <h1 class="title w-full">{{ LivePage[language] }}</h1>
                 <div class="px-3 grid grid-cols-4 gap-4 mt-[6cm]">
                     <template v-for="port,index in ports" :key="index">
-                        <Cam :port="port.port" :delay="((index+1) * 200)">{{ port.reference[language] }}</Cam>
+                        <Cam :img="port.image" :port="port.port" :delay="((index+1) * 200)">{{ port.reference[language] }}</Cam>
                     </template>
                 </div>
             </div>

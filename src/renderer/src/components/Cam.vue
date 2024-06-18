@@ -7,15 +7,16 @@ const store = useAudioStore();
 interface Cam {
     port:number;
     delay:number;
+    img:string
 }
 const props = defineProps<Cam>();
 const opacity:Ref<number> = ref(0);
 
-function getImageUrl(img:number){
-    return new URL(`../assets/images/cams/${img}.png`, import.meta.url).href;
+function getImageUrl(img:string){
+    return new URL(`../assets/images/cameras/CAM-${img}`, import.meta.url).href;
 }
 
-const img:Ref<string> = ref(getImageUrl(props.port))
+const img:Ref<string> = ref(getImageUrl(props.img))
 
 onMounted(() => {
     setTimeout(() => {

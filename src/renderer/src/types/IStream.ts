@@ -4,4 +4,5 @@ export default interface Stream{
         english: string;
     },
     port: number,
+    image:string
 }

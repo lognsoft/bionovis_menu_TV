@@ -62,23 +62,25 @@ function startServer() {
     reference: { default:string, english:string },
     url: string,
     port: number,
+    image: string,
   };
   const streamsPreparations:ReadonlyArray<Stream> = [
-    {
-      reference:{
-        default:"Teste Cam",
-        english:"Test Cam"
-      },
-      url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
-      port: 4000
-    },
+    // {
+    //   reference:{
+    //     default:"Teste Cam",
+    //     english:"Test Cam"
+    //   },
+    //   url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
+    //   port: 4000
+    // },
     {
         reference: {
             default: "PRODUÇÃO | PREPARO DE MEIO MPOA",
             english: "PRODUCTION | MPOA MEDIUM PREPARATION"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.27:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8091
+        port: 8091,
+        image: "027.png"
     },
     {
         reference: {
@@ -86,7 +88,8 @@ function startServer() {
             english: "PRODUCTION | SOLUTIONS PREPARATION"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.20:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8092
+        port: 8092,
+        image:"020.png"
     },
     {
         reference: {
@@ -94,7 +97,8 @@ function startServer() {
             english: "PRODUCTION | WASHING"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.43:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8093
+        port: 8093,
+        image:"043.png"
     },
     {
         reference: {
@@ -102,7 +106,8 @@ function startServer() {
             english: "PRODUCTION | ASSEMBLY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.30:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8094
+        port: 8094,
+        image:"030.png"
     },
     {
         reference: {
@@ -110,7 +115,8 @@ function startServer() {
             english: "PRODUCTION | WASHING"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.51:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8095
+        port: 8095,
+        image:"051.png"
     },
     {
         reference: {
@@ -118,7 +124,8 @@ function startServer() {
             english: "PRODUCTION | ASSEMBLY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.50:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8096
+        port: 8096,
+        image:"050.png"
     }
   ];
   const streamsUpstreams:ReadonlyArray<Stream> = [
@@ -128,7 +135,8 @@ function startServer() {
             english: "PRODUCTION | CELL BANK"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.56:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8085
+        port: 8085,
+        image:"056.png"
     },
     {
         reference: {
@@ -136,7 +144,8 @@ function startServer() {
             english: "PRODUCTION | INOCULATION"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.54:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8086
+        port: 8086,
+        image:"054.png"
     },
     {
         reference: {
@@ -144,7 +153,8 @@ function startServer() {
             english: "PRODUCTION | CELL CULTURE"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.26:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8087
+        port: 8087,
+        image:"026.png"
     }
   ];
   const streamsDownStreams:ReadonlyArray<Stream> = [
@@ -154,7 +164,8 @@ function startServer() {
             english: "PRODUCTION | PRIMARY RECOVERY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.17:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8088
+        port: 8088,
+        image:"017.png"
     },
     {
         reference: {
@@ -162,7 +173,8 @@ function startServer() {
             english: "PRODUCTION | PURIFICATION"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.18:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8089
+        port: 8089,
+        image:"018.png"
     },
     {
         reference: {
@@ -170,7 +182,8 @@ function startServer() {
             english: "PRODUCTION | FINAL PURIFICATION"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.34:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8090
+        port: 8090,
+        image:"034.png"
     }
   ];
   const streamsAreaPassagem:ReadonlyArray<Stream> = [
@@ -180,7 +193,8 @@ function startServer() {
             english: "PRODUCTION | MEETING ROOMS HALLWAY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.10:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8097
+        port: 8097,
+        image: "010.png"
     },
     {
         reference: {
@@ -188,7 +202,8 @@ function startServer() {
             english: "PRODUCTION | DISTRIBUTION HALLWAY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.11:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8098
+        port: 8098,
+        image:"011.png"
     },
     { 
         reference: {
@@ -196,7 +211,8 @@ function startServer() {
             english: "PRODUCTION | DISTRIBUTION HALLWAY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.25:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8099
+        port: 8099,
+        image:"025.png"
     },
     {
         reference: {
@@ -204,7 +220,8 @@ function startServer() {
             english: "PRODUCTION | RETURN HALLWAY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.19:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8100
+        port: 8100,
+        image:"019.png"
     }
   ];
   const streamsFillAndFinish:ReadonlyArray<Stream> = [
@@ -214,7 +231,8 @@ function startServer() {
             english: "FORMULATION AND FILLING | WASHING"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.36:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8101
+        port: 8101,
+        image:"036.png"
     },
     {
         reference: {
@@ -222,7 +240,8 @@ function startServer() {
             english: "FORMULATION AND FILLING | ASSEMBLY"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.21:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8102
+        port: 8102,
+        image:"021.png"
     },
     {
         reference: {
@@ -230,7 +249,8 @@ function startServer() {
             english: "FORMULATION AND FILLING | FORMULATION"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.15:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8103
+        port: 8103,
+        image: "015.png"
     },
     {
         reference: {
@@ -238,7 +258,8 @@ function startServer() {
             english: "FORMULATION AND FILLING | ASEPTIC FILLING"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.39:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8104
+        port: 8104,
+        image:"039.png"
     },
     {
         reference: {
@@ -246,7 +267,8 @@ function startServer() {
             english: "FORMULATION AND FILLING | ASEPTIC FILLING"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.40:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8105
+        port: 8105,
+        image:"040.png"
     }
   ];
   const streamsEmbalagemSecundaria:ReadonlyArray<Stream> = [
@@ -256,7 +278,8 @@ function startServer() {
             english: "SECONDARY PACKAGING | BAY 02 (FUTURE)"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.7:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8106
+        port: 8106,
+        image:"007.png"
     },
     {
         reference: {
@@ -264,7 +287,8 @@ function startServer() {
             english: "SECONDARY PACKAGING | BAY 02 (FUTURE)"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.42:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8107
+        port: 8107,
+        image:"042.png"
     },
     {
         reference: {
@@ -272,7 +296,8 @@ function startServer() {
             english: "SECONDARY PACKAGING | BAY 01"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.41:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8108
+        port: 8108,
+        image:"041.png"
     },
     {
         reference: {
@@ -280,7 +305,8 @@ function startServer() {
             english: "SECONDARY PACKAGING | BAY 01"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.6:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8109
+        port: 8109,
+        image: "006.png"
     }
   ];
   const streamsLogistica:ReadonlyArray<Stream> = [
@@ -290,7 +316,8 @@ function startServer() {
             english: "LOGISTICS | COLD CHAMBER"
         },
         url: 'rtsp://tv:Bionovis2024tv@172.16.0.127:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8110
+        port: 8110,
+        image:"127.png"
     },
     {
         reference: {
@@ -298,7 +325,8 @@ function startServer() {
             english: "LOGISTICS | COLD CHAMBER"
         },
         url: 'rtsp://tv:Bionovis2024tv@172.16.0.124:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8111
+        port: 8111,
+        image:"124.png"
     },
     {
         reference: {
@@ -306,7 +334,8 @@ function startServer() {
             english: "LOGISTICS | COLD DOCK"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.123:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8112
+        port: 8112,
+        image:"123.png"
     },
     {
         reference: {
@@ -314,7 +343,8 @@ function startServer() {
             english: "LOGISTICS | COLD DOCK"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.118:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8113
+        port: 8113,
+        image:"118.png"
     },
     {
         reference: {
@@ -322,7 +352,8 @@ function startServer() {
             english: "LOGISTICS | WRAPPING"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.122:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8114
+        port: 8114,
+        image:"122.png"
     },
     {
         reference: {
@@ -330,7 +361,8 @@ function startServer() {
             english: "LOGISTICS | OFFICE"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.129:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8115
+        port: 8115,
+        image:"129.png"
     }
   ];
   const streamsQualidade:ReadonlyArray<Stream> = [
@@ -340,7 +372,8 @@ function startServer() {
           english: "PHYSICO-CHEMICAL QC | BENCHES"
       },
       url: 'rtsp://tv:Bionovis@2024tv@172.16.0.85:554/cam/realmonitor?channel=1&subtype=0',
-      port: 8082
+      port: 8082,
+      image:"085.png"
     },
     {
         reference: {
@@ -348,7 +381,8 @@ function startServer() {
             english: "PHYSICO-CHEMICAL QC | BENCHES"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.83:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8083
+        port: 8083,
+        image:"083.png"
     },
     {
         reference: {
@@ -356,7 +390,8 @@ function startServer() {
             english: "QUALITY ASSURANCE | OFFICE (BACK)"
         },
         url: 'rtsp://tv:Bionovis@2024tv@172.16.0.165:554/cam/realmonitor?channel=1&subtype=0',
-        port: 8084
+        port: 8084,
+        image:"165.png"
     }
   ];
 
@@ -454,7 +489,8 @@ function startServer() {
     if (hashtable[req.url]) {
         const ports = hashtable[req.url].map((stream:Stream) => ({
           port: stream.port,
-          reference: stream.reference
+          reference: stream.reference,
+          image:stream.image
         }));
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(ports));
