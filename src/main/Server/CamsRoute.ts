@@ -13,15 +13,15 @@ export function GetAllCamsRoute() {
       image: string,
     };
     const streamsPreparations:ReadonlyArray<Stream> = [
-      {
-        reference:{
-          default:"Teste Cam",
-          english:"Test Cam"
-        },
-        url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
-        port: 4000,
-        image: "027.png"
-      },
+    //   {
+    //     reference:{
+    //       default:"Teste Cam",
+    //       english:"Test Cam"
+    //     },
+    //     url: 'rtsp://admin:bruno123@192.168.2.233:554/cam/realmonitor?channel=1&subtype=0',
+    //     port: 4000,
+    //     image: "027.png"
+    //   },
       {
           reference: {
               default: "PRODUÇÃO | PREPARO DE MEIO MPOA",
