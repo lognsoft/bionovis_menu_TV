@@ -68,8 +68,8 @@ function closeVideo(){
                     />
                 </template>
             </template>
-            <BackButton :timer="(store.areas.length + 1) * 100" :text-button="NavigateContainer[language].back" :toggle="toggleMenu" color="#3090b9" @click="store.root"><Back/></BackButton>
-            <MenuButton :text-button="NavigateContainer[language].closeMenu" @click="store.toggleMenuAction" :toggle="toggleMenu" :timer="(store.areas.length + 2) * 100" color="#3090b9"><Menu/></MenuButton>
+            <BackButton :timer="(store.areas.length + 1) * 100" :text-button="NavigateContainer[language].back" :toggle="toggleMenu" color="#1d4e53" @click="store.root"><Back/></BackButton>
+            <MenuButton :text-button="NavigateContainer[language].closeMenu" @click="store.toggleMenuAction" :toggle="toggleMenu" :timer="(store.areas.length + 2) * 100" color="#27747c"><Menu/></MenuButton>
         </div>
         <!-- fim do Menu principal -->
 
@@ -102,8 +102,8 @@ function closeVideo(){
                     </MiddleCard>
                 </template>
             </template>
-            <BackButton :text-button="NavigateContainer[language].back" :timer="(initialRouter.routes.length + 2) * 100" :toggle="toggleMenu" color="#3090b9" @click="store.returnForInitialRouter"><Back/></BackButton>
-            <MenuButton :text-button="NavigateContainer[language].closeMenu" @click="store.toggleMenuAction" :toggle="toggleMenu" :timer="(initialRouter.routes.length + 3) * 100" color="#3090b9"><Menu/></MenuButton>
+            <BackButton :text-button="NavigateContainer[language].back" :timer="(initialRouter.routes.length + 2) * 100" :toggle="toggleMenu" color="#1d4e53" @click="store.returnForInitialRouter"><Back/></BackButton>
+            <MenuButton :text-button="NavigateContainer[language].closeMenu" @click="store.toggleMenuAction" :toggle="toggleMenu" :timer="(initialRouter.routes.length + 3) * 100" color="#27747c"><Menu/></MenuButton>
         </div>
         <!-- fim do segundo menu -->
 
@@ -114,11 +114,11 @@ function closeVideo(){
                 <div>{{ selectedRouter.pathname }}</div>
             </MiddleCard>
             <template v-for="subRoute,index in selectedRouter.subRoutes" :key="index">
-                <SmallCard :href="subRoute.path" :toggle="toggleMenu" :color="selectedRouter.color" :timer="(200 + ((index + 1) * 100))" @click="store.toggleMenuAction">{{ subRoute.pathname }}</SmallCard>
+                <SmallCard :href="subRoute.path" :toggle="toggleMenu" :color="subRoute.color" :timer="(200 + ((index + 1) * 100))" @click="store.toggleMenuAction">{{ subRoute.pathname }}</SmallCard>
             </template>
-            <BackButton :text-button="NavigateContainer[language].back" :timer="(selectedRouter.subRoutes.length + 3) * 100" :toggle="toggleMenu" @click="store.closeSubMenu" color="#3090b9"><Back/></BackButton>
-            <BackButton :text-button="NavigateContainer[language].homeButton" :timer="(selectedRouter.subRoutes.length + 4) * 100" :toggle="toggleMenu" @click="store.returnForInitialRouter" color="#3090b9"><Home/></BackButton>
-            <MenuButton :text-button="NavigateContainer[language].closeMenu" @click="store.toggleMenuAction" :toggle="toggleMenu" :timer="(selectedRouter?.subRoutes.length + 5) * 100" color="#3090b9"><Menu/></MenuButton>
+            <BackButton :text-button="NavigateContainer[language].back" :timer="(selectedRouter.subRoutes.length + 3) * 100" :toggle="toggleMenu" @click="store.closeSubMenu" color="#1d4e53"><Back/></BackButton>
+            <MenuButton :text-button="NavigateContainer[language].closeMenu" @click="store.toggleMenuAction" :toggle="toggleMenu" :timer="(selectedRouter?.subRoutes.length + 4) * 100" color="#27747c"><Menu/></MenuButton>
+            <BackButton :text-button="NavigateContainer[language].homeButton" :timer="(selectedRouter.subRoutes.length + 5) * 100" :toggle="toggleMenu" @click="store.returnForInitialRouter" color="#79adab"><Home/></BackButton>
         </div>
         <!-- fim do submenu -->
 
