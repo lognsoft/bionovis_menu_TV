@@ -5,9 +5,9 @@ import ImgvideoInstitucional from "@renderer/assets/images/icons/icone_tv.svg";
 import apresentacoesDiversas from "@renderer/assets/images/icons/icone_tubo1.svg";
 
 
-// import videoInstitucional from "@renderer/assets/videos/institucional.mp4";
-// import videoInstitucionalLegenda from "@renderer/assets/videos/institucional.mp4";
-// import videoInstitucionalEnglish from "@renderer/assets/videos/institucional-english.mp4";
+import videoInstitucional from "@renderer/assets/videos/Institucional_PT_Sem_Legenda.mp4";
+import videoInstitucionalLegenda from "@renderer/assets/videos/Institucional_PT_Legendado.mp4";
+import videoInstitucionalEnglish from "@renderer/assets/videos/Institucional_EN.mp4";
 
 interface RoutesLanguages{
     default:ReadonlyArray<IRoutes>;
@@ -167,7 +167,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Vídeo Completo",
                 color: "#006c9d",
-                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional,
+                video:videoInstitucional,
             },
             {
             pathname:"Inóculo",
@@ -278,7 +278,19 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:ImgvideoInstitucional,
         color:"#006c9d",
         timer:300,
-        video:"https://player.vimeo.com/video/958364640?h=66f387e677"
+        routes:[
+            {
+                pathname:"Com Legenda",
+                color: "#005278",
+                video:videoInstitucionalLegenda,
+            },
+            {
+                pathname:"Sem Legenda",
+                color: "#003851",
+                video:videoInstitucional,
+            },
+        ]
+        // video:videoInstitucional
     },
     {
         name: "Apresentações",
@@ -286,19 +298,12 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         color:"#005277",
         timer:300,
         routes:[
-            {
-                pathname:"Com Legenda",
-                color: "#005278",
-                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalLegenda,
-            },
-            {
-                pathname:"Sem Legenda",
-                color: "#003851",
-                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional,
-            },
+            
         ]
     }
 ];
+
+
 const EnglishRoutes:ReadonlyArray<IRoutes> = [
     {
         name: "Productive Areas",
@@ -313,11 +318,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-preparations",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#046282"
                     },
                     {
                         path:"/videos/videos-preparations",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#046282"
                     },
                 ]
             },
@@ -328,11 +335,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-upstreams",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color:"#036d91"
                     },
                     {
                         path:"/videos/videos-upstreams",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color:"#036d91"
                     },
                 ]
             },
@@ -343,11 +352,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-downstreams",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#06789f"
                     },
                     {
                         path:"/videos/videos-downstreams",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#06789f"
                     },
                 ]
             },
@@ -358,11 +369,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-area-passagem",
-                        pathname:"Câmeras ao Vivo"
+                        pathname:"Câmeras ao Vivo",
+                        color: "#06789f"
                     },
                     {
                         path:"/videos/videos-area-passagem",
-                        pathname:"Gravação das Câmeras"
+                        pathname:"Gravação das Câmeras",
+                        color: "#06789f"
                     },
                 ]
             },
@@ -374,11 +387,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-fill-and-finish",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#0e83ad"
                     },
                     {
                         path:"/videos/videos-fill-and-finish",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#0e83ad"
                     },
                 ]
             },
@@ -389,11 +404,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-embalagem-secundaria",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#238eb7"
                     },
                     {
                         path:"/videos/videos-embalagem-secundaria",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#238eb7"
                     },
                 ]
             },
@@ -404,11 +421,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-logistica",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#4097be"
                     },
                     {
                         path:"/videos/videos-logistica",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#4097be"
                     },
                 ]
             },
@@ -419,11 +438,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-qualidade",
-                        pathname:"Câmeras ao Vivo"
+                        pathname:"Câmeras ao Vivo",
+                        color: "#4097be"
                     },
                     {
                         path:"/videos/videos-qualidade",
-                        pathname:"Gravação das Câmeras"
+                        pathname:"Gravação das Câmeras",
+                        color: "#4097be"
                     },
                 ]
             }
@@ -438,17 +459,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Complete Video",
                 color: "#046282",
-                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucional,
-                // subRoutes:[
-                //     {
-                //         path:"/cams/streams-inoculo",
-                //         pathname:"Live Cameras"
-                //     },
-                //     {
-                //         path:"/videos/videos-inoculo",
-                //         pathname:"Camera Recording"
-                //     },
-                // ]
+                video:videoInstitucionalEnglish,
             },
             {
                 pathname:"Inoculum",
@@ -457,11 +468,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-inoculo",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color:"#046282"
                     },
                     {
                         path:"/videos/videos-inoculo",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color:"#046282"
                     },
                 ]
             },
@@ -472,11 +485,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-upstreams",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#036d91"
                     },
                     {
                         path:"/videos/videos-upstreams",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#036d91"
                     },
                 ]
             },
@@ -487,11 +502,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-downstreams",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#06789f"
                     },
                     {
                         path:"/videos/videos-downstreams",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#06789f"
                     },
                 ]
             },
@@ -503,11 +520,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-fill-and-finish",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#0e83ad"
                     },
                     {
                         path:"/videos/videos-fill-and-finish",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#0e83ad"
                     },
                 ]
             },
@@ -518,11 +537,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-embalagem-secundaria",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#238eb7"
                     },
                     {
                         path:"/videos/videos-embalagem-secundaria",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#238eb7"
                     },
                 ]
             },
@@ -533,11 +554,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-logistica",
-                        pathname:"Live Cameras"
+                        pathname:"Live Cameras",
+                        color: "#4097be"
                     },
                     {
                         path:"/videos/videos-logistica",
-                        pathname:"Camera Recording"
+                        pathname:"Camera Recording",
+                        color: "#4097be"
                     },
                 ]
             }
@@ -548,22 +571,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:ImgvideoInstitucional,
         color:"#595959",
         timer:300,
-        video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalEnglish,
-        // routes:[{
-        //     pathname:"Files",
-        //     color: "#008a94",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/arquivos/loremIpsum",
-        //             pathname:"Documents"
-        //         },
-        //         // {
-        //         //     path:"/videos/videos-arquivos",
-        //         //     pathname:"Gravação das Câmeras"
-        //         // },
-        //     ]
-        // }]
+        routes:[
+            {
+                pathname:"Without Subtitles",
+                color: "#595959",
+                video:videoInstitucionalEnglish,
+            },
+        ]
     },
     {
         name: "Presentations",
@@ -571,36 +585,6 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         color:"#00757d",
         timer:300,
         routes:[
-            {
-                pathname:"With Subtitles",
-                color: "#008a94",
-                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalEnglish,
-                // subRoutes:[
-                    // {
-                    //     path:"/arquivos/loremIpsum2",
-                    //     pathname:"Documentos"
-                    // },
-                //     // {
-                //     //     path:"/videos/videos-arquivos",
-                //     //     pathname:"Gravação das Câmeras"
-                //     // },
-                // ]
-            },
-            {
-                pathname:"Without Subtitles",
-                color: "#008a94",
-                video:"https://player.vimeo.com/video/958364640?h=66f387e677"//videoInstitucionalEnglish,
-                // subRoutes:[
-                //     {
-                //         path:"/arquivos/loremIpsum2",
-                //         pathname:"Documentos"
-                //     },
-                //     // {
-                //     //     path:"/videos/videos-arquivos",
-                //     //     pathname:"Gravação das Câmeras"
-                //     // },
-                // ]
-            },
         ]
     }
 ];

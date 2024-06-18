@@ -28,8 +28,8 @@ function closeVideo(){
 
 <template>
     <div class="relative w-full">
-        <!-- <video class="player-video" :src="props.video" controls autoplay></video> -->
-        <iframe :src="`${props.video}&autoplay=1`" class="player-iframe" frameborder="0" allow="autoplay;"></iframe>
+        <video class="player-video" :src="props.video" controls autoplay></video>
+        <!-- <iframe :src="`${props.video}&autoplay=1`" class="player-iframe" frameborder="0" allow="autoplay;"></iframe> -->
         <div class="close-video" @click="closeVideo" title="Fechar Vídeo">
             <CloseBold/>
         </div>
