@@ -514,7 +514,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
             },
             {
                 pathname:"Fill and Finish",
-                subText:"(Formulação e Envase)",
+                subText:"(Formulation and Filling)",
                 color: "#a3b73a",
                 video:"",
                 subRoutes:[
@@ -531,7 +531,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 ]
             },
             {
-                pathname:"secondary packaging",
+                pathname:"Secondary Packaging",
                 color: "#bbd627",
                 video:"",
                 subRoutes:[
@@ -548,7 +548,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 ]
             },
             {
-                pathname:"logistics",
+                pathname:"Logistics",
                 color: "#79adab",
                 video:"",
                 subRoutes:[
