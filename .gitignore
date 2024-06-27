@@ -1,1 +1,3 @@
 node_modules
+out/preload/index.js
+out/main/index.js
