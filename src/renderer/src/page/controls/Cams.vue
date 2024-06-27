@@ -16,13 +16,14 @@ const props = defineProps({
     nameMenu:String,
 })
 async function getCams():Promise<void>{
+    
     const req = await fetch(`http://localhost:3000/live-cams/${props.nameMenu}`,{
         headers:{
             "Content-Type": "application/json"
         }
     })
     const res:Array<IStream> = await req.json();
-    console.log(res);
+    console.log(res+"fa");
     ports.value = res;
 }
 

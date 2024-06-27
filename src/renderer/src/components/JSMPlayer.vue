@@ -28,6 +28,7 @@ const props = defineProps<Props>();
 const margin:Ref<string> = ref('-100%');
 
 onMounted(() => {
+    
     setTimeout(() => {
         margin.value = '0';
     },500);
@@ -57,7 +58,9 @@ onMounted(() => {
     }
 });
 onBeforeUnmount(() => {
-    if(canvas.value !== null ) canvas.value.player.destroy();
+    if(canvas.value !== null ){
+        canvas.value.player.destroy()
+    }
 });
 
 function closeCall(){
