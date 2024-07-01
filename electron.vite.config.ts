@@ -19,7 +19,9 @@ export default defineConfig({
     server:{
       fs:{
         allow: [
-          'c:/'
+          'c:/',
+          'D:/',
+          'd:'
         ]
       }
     }

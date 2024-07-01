@@ -30,7 +30,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#006c9d"
                     },
                     {
-                        path:"/videos/videos-Preparações",
+                        path:"/videos/videos-Preparos",
                         pathname:"Gravação das Câmeras",
                         color:"#005278"
                     },

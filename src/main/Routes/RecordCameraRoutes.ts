@@ -80,6 +80,8 @@ app.get('/startRecord', async (req, res) => {
     const directoryPath = await getRootDirectoryFisicalPath();
     const { VideoName, optionMenu, DirName} = req.query
 
+    console.log(directoryPath);
+
     const videoPath = path.join(directoryPath+"\\"+optionMenu+"\\"+DirName+"\\"+VideoName);
     console.log(videoPath);
 
@@ -88,6 +90,22 @@ app.get('/startRecord', async (req, res) => {
         res.sendFile(videoPath);
     } else {
         res.status(404).send('Video not found');
+    }
+});
+
+// Rota para servir imagem individualmente
+app.get('/openImage', async (req, res) => {
+    const directoryPath = await getRootDirectoryFisicalPath();
+    const { ImageName, optionMenu, DirName } = req.query;
+
+    const imagePath = path.join(directoryPath, optionMenu, DirName, ImageName);
+    console.log(imagePath);
+
+    if (fs.existsSync(imagePath)) {
+        console.log("Imagem encontrada");
+        res.sendFile(imagePath);
+    } else {
+        res.status(404).send('Imagem não encontrada');
     }
 });
 
