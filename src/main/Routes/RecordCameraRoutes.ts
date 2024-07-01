@@ -99,7 +99,6 @@ app.get('/openImage', async (req, res) => {
     const { ImageName, optionMenu, DirName } = req.query;
 
     const imagePath = path.join(directoryPath, optionMenu, DirName, ImageName);
-    console.log(imagePath);
 
     if (fs.existsSync(imagePath)) {
         console.log("Imagem encontrada");

@@ -16,6 +16,7 @@ const optionMenu:ComputedRef<string> = computed(() => language.value === 'defaul
 const getVideos = async () => {
     const pasta:string = localStorage.getItem("dir") as string;
     const data = await fetch(`http://localhost:3000/startRecord?DirName=${pasta}&optionMenu=${optionMenu.value}&VideoName=${props.videoName}`);
+
     const res = await data;
     video.value = res.url;
 }
