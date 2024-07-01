@@ -82,7 +82,7 @@ app.get('/startRecord', async (req, res) => {
 
     console.log(directoryPath);
 
-    const videoPath = path.join(directoryPath+"\\"+optionMenu+"\\"+DirName+"\\"+VideoName);
+    const videoPath = path.join(directoryPath,optionMenu,DirName,VideoName);
     console.log(videoPath);
 
     if (fs.existsSync(videoPath)) {
