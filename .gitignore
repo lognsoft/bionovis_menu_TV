@@ -4,6 +4,3 @@ out
 .DS_Store
 *.log*
 packages
-src/renderer/src/assets/videos/institucional_EN.mp4
-src/renderer/src/assets/videos/institucional_PT_Legendado.mp4
-src/renderer/src/assets/videos/institucional_PT_Sem_Legenda.mp4

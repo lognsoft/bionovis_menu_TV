@@ -30,8 +30,7 @@ async function getVideos(){
 
 onMounted(() => {
     localStorage.setItem('cam-videos', route.path);
-    let dir:string = props.nameVideos.split('-')[1];
-    dir = `${dir[0].toUpperCase()}${dir.substring(1, dir.length)}`;
+    const dir:string = props.nameVideos.split('-')[1].replace(/_/g, " ");
     const dirStorage: string | null = localStorage.getItem("dir");
 
     if(dirStorage === null || dirStorage !== dir){

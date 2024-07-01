@@ -30,7 +30,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#006c9d"
                     },
                     {
-                        path:"/videos/videos-preparations",
+                        path:"/videos/videos-Preparações",
                         pathname:"Gravação das Câmeras",
                         color:"#005278"
                     },
@@ -47,7 +47,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#005278"
                     },
                     {
-                        path:"/videos/videos-upstreams",
+                        path:"/videos/videos-Upstream",
                         pathname:"Gravação das Câmeras",
                         color:"#003851"
                     },
@@ -64,7 +64,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#003851"
                     },
                     {
-                        path:"/videos/videos-downstreams",
+                        path:"/videos/videos-Downstream",
                         pathname:"Gravação das Câmeras",
                         color:"#5f6d16"
                     },
@@ -81,7 +81,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#5f6d16"
                     },
                     {
-                        path:"/videos/videos-area-passagem",
+                        path:"/videos/videos-Área_de_Passagem",
                         pathname:"Gravação das Câmeras",
                         color:"#a3b73a"
                     },
@@ -99,7 +99,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#a3b73a"
                     },
                     {
-                        path:"/videos/videos-fill-and-finish",
+                        path:"/videos/videos-Fill_and_Finish",
                         pathname:"Gravação das Câmeras",
                         color:"#bbd62f"
                     },
@@ -116,7 +116,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#bbd62f"
                     },
                     {
-                        path:"/videos/videos-embalagem-secundaria",
+                        path:"/videos/videos-Embalagem_Secundária",
                         pathname:"Gravação das Câmeras",
                         color:"#95d4db"
                     },
@@ -133,7 +133,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                     color:"#95d4db"
                 },
                 {
-                    path:"/videos/videos-logistica",
+                    path:"/videos/videos-Armazém_Logística",
                     pathname:"Gravação das Câmeras",
                     color:"#79adab"
                 },
@@ -150,7 +150,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                     color:"#79adab"
                 },
                 {
-                    path:"/videos/videos-qualidade",
+                    path:"/videos/videos-Qualidade",
                     pathname:"Gravação das Câmeras",
                     color:"#27747c"
                 },
@@ -321,7 +321,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#006c9d"
                     },
                     {
-                        path:"/videos/videos-preparations",
+                        path:"/videos/videos-Preparations",
                         pathname:"Camera Recording",
                         color: "#005278"
                     },
@@ -338,7 +338,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color:"#005278"
                     },
                     {
-                        path:"/videos/videos-upstreams",
+                        path:"/videos/videos-Upstream",
                         pathname:"Camera Recording",
                         color:"#003851"
                     },
@@ -355,7 +355,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#003851"
                     },
                     {
-                        path:"/videos/videos-downstreams",
+                        path:"/videos/videos-Downstream",
                         pathname:"Camera Recording",
                         color: "#5f6d16"
                     },
@@ -372,7 +372,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#5f6d16"
                     },
                     {
-                        path:"/videos/videos-area-passagem",
+                        path:"/videos/videos-Passage_Area",
                         pathname:"Gravação das Câmeras",
                         color: "#a3b73a"
                     },
@@ -390,7 +390,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#a3b73a"
                     },
                     {
-                        path:"/videos/videos-fill-and-finish",
+                        path:"/videos/videos-Fill_and_Finish",
                         pathname:"Camera Recording",
                         color: "#bbd62f"
                     },
@@ -407,7 +407,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#bbd62f"
                     },
                     {
-                        path:"/videos/videos-embalagem-secundaria",
+                        path:"/videos/videos-Secondary_Packaging",
                         pathname:"Camera Recording",
                         color: "#95d4db"
                     },
@@ -424,7 +424,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#95d4db"
                     },
                     {
-                        path:"/videos/videos-logistica",
+                        path:"/videos/videos-Logistics_Warehouse",
                         pathname:"Camera Recording",
                         color: "#79adab"
                     },
@@ -441,7 +441,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         color: "#79adab"
                     },
                     {
-                        path:"/videos/videos-qualidade",
+                        path:"/videos/videos-Quality",
                         pathname:"Gravação das Câmeras",
                         color: "#27747c"
                     },
