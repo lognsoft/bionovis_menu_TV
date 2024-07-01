@@ -21,11 +21,12 @@ const menuOption:ComputedRef<string> = computed(() => language.value === 'defaul
 
 async function getVideos(){
     
-    console.log(pasta);
     const request = await fetch(`http://localhost:3000/camerasRecords?optionMenu=${menuOption.value}/${ pasta.value }`);
+
     const data:ReadonlyArray<{video:string, image:string | boolean}> = await request.json();
     console.log(data);
     videos.value = data;
+    
 }
 
 onMounted(() => {
