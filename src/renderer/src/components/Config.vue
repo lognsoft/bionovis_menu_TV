@@ -11,7 +11,7 @@ const msgError:Ref<string> = ref('');
 const { directoryExist, path } = storeToRefs(directory)
 
 onMounted(() => {
-    directory.verifyDirectoryExist();
+    if(typeof path.value === 'undefined') directory.verifyDirectoryExist();
 })
 
 const submitDir:() => Promise<void> = async () =>{
