@@ -3,7 +3,7 @@
 import { computed, ComputedRef, onBeforeUnmount, ref, Ref } from 'vue';
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import { onMounted } from "vue";
-import VideosPage from "@renderer/constants/LivePage";
+import VideosPage from "@renderer/constants/VideosPage";
 import { storeToRefs } from "pinia";
 import { useRoute } from 'vue-router';
 const route = useRoute();

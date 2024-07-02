@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref, Ref, computed, ComputedRef } from "vue";
 import NavigateBigCard from "@renderer/components/navigate/NavigateBigCard.vue";
 import MiddleCard from "@renderer/components/navigate/buttons/MiddleCard.vue";
 import SmallCard from "@renderer/components/navigate/buttons/SmallCard.vue";
@@ -22,14 +22,29 @@ const { selectedRouter, closeMenu, toggleMenu, initialRouter } = storeToRefs(sto
 const { language } = storeToRefs(storeLanguages);
 // const { modal } = storeToRefs(storeModal);
 
-
+const lang:ComputedRef<string> = computed(() => {
+    let val:string = '';
+    if(language.value === 'default'){
+        val = "PT"
+    } else {
+        val = 'EN';
+    }
+    return val;
+})
 
 const flagVideo:Ref<boolean> = ref(false);
 const video:Ref<string> = ref('')
 
-function playVideo(data:string){
-    video.value = data;
-    flagVideo.value = true;
+async function playVideo(data:string, name:string):Promise<void>{
+    console.log(lang.value)
+    try {
+        const req = await fetch(`http://localhost:3000/startRecord?DirName=${name}&optionMenu=${lang.value}&VideoName=${data}`);
+        video.value = String(req.url);
+        // console.log(req.url);
+        flagVideo.value = true;
+    } catch (error) {
+        console.error(error);
+    }
 }
 function closeVideo(){
     video.value = '';
@@ -41,11 +56,10 @@ function closeVideo(){
         <Player :video="video" :on-custom-event="closeVideo"/>
     </div>
     <div class="container-menu">
-        
         <!-- Menu principal -->
         <div class="navigate" v-if="selectedRouter === null && initialRouter === null">
             <template v-for="area,index in store.areas" :key="index">
-                <template v-if="area.video == true">
+                <template v-if="area.video !== ''">
                     <NavigateBigCard
                         class="cursor-pointer"
                         :timer="((index+1)* 100)"
@@ -53,7 +67,7 @@ function closeVideo(){
                         :color="area.color"
                         :text-button="area.name"
                         :image="area.image"
-                        @click="playVideo(area.video)"
+                        @click="playVideo(area.video, area.name)"
                     />
                 </template>
                 <template v-else>
@@ -77,13 +91,13 @@ function closeVideo(){
         <div class="navigate" v-if="initialRouter !== null && selectedRouter == null && initialRouter.routes">
             <NavigateBigCard :timer="100" :toggle="toggleMenu" :color="initialRouter.color" :text-button="initialRouter.name" :image="initialRouter.image"/>
             <template v-for="route,index in initialRouter.routes" :key="index">
-                <template v-if="route.video == true">
+                <template v-if="route.video !== ''">
                     <MiddleCard
                         class="cursor-pointer"
                         :timer="((index+2)*100)"
                         :toggle="toggleMenu"
                         :color="route.color"
-                        @click="playVideo(route.video)"
+                        @click="playVideo(route.video, initialRouter.name)"
                     >
                         <div>{{ route.pathname }}</div>
                         <small v-if="route.subText !== undefined" v-html="route.subText"></small>

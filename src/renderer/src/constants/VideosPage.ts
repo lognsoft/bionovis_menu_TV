@@ -1,6 +1,6 @@
-import IDefaultPage from "@renderer/types/IDefaultPage";
+import ILanguage from "@renderer/types/ILanguage";
 
-const VideosPage:IDefaultPage = {
+const VideosPage:ILanguage<string> = {
     default:"Gravação das Câmeras",
     english:"Camera Recording"
 }

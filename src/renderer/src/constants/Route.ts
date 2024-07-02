@@ -282,7 +282,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Sem Legenda",
                 color: "#003851",
-                video:"institucional",
+                video:"institucional.mp4",
             },
         ]
         // video:videoInstitucional
@@ -292,7 +292,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:apresentacoesDiversas,
         color:"#005277",
         timer:300,
-        video:"nameVideo",
+        video:"institucional.mp4",
         routes:[
             
         ]
@@ -574,7 +574,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
             {
                 pathname:"Without Subtitles",
                 color: "#005278",
-                video:"institutional",
+                video:"institutional.mp4",
             },
         ]
     },
