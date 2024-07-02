@@ -149,123 +149,125 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                     color:"#27747c"
                 },
             ]
-        }]
+        }
+        ]
     },
     {
         name: "Processo Produtivo",
         image:processosProdutivos,
         color:"#008dcf",
         timer:300,
-        video:"",
+        video:"processo_produtivo.mp4",
         routes:[
-            {
-                pathname:"Vídeo Completo",
-                color: "#006c9d",
-                video:"nameVideo",
-            },
-            {
-            pathname:"Inóculo",
-            color: "#005278",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-inoculo",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#003851"
-                },
-                {
-                    path:"/videos/videos-inoculo",
-                    pathname:"Gravação das Câmeras",
-                    color:"#5f6d16"
-                },
-            ]
-        },
-        {
-            pathname:"Upstream",
-            color: "#003851",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-upstreams",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#5f6d16"
-                },
-                {
-                    path:"/videos/videos-upstreams",
-                    pathname:"Gravação das Câmeras",
-                    color:"#a3b73a"
-                },
-            ]
-        },
-        {
-            pathname:"Downstream",
-            color: "#5f6d16",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-downstreams",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#a3b73a"
-                },
-                {
-                    path:"/videos/videos-downstreams",
-                    pathname:"Gravação das Câmeras",
-                    color:"#bbd627"
-                },
-            ]
-        },
-        {
-            pathname:"Fill and Finish",
-            subText:"(Formulação e Envase)",
-            color: "#a3b73a",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-fill-and-finish",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#bbd627"
-                },
-                {
-                    path:"/videos/videos-fill-and-finish",
-                    pathname:"Gravação das Câmeras",
-                    color:"#79adab"
-                },
-            ]
-        },
-        {
-            pathname:"Embalagem Secundária",
-            color: "#bbd627",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-embalagem-secundaria",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#79adab"
-                },
-                {
-                    path:"/videos/videos-embalagem-secundaria",
-                    pathname:"Gravação das Câmeras",
-                    color:"#27747c"
-                },
-            ]
-        },
-        {
-            pathname:"Logística",
-            color: "#79adab",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-logistica",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#27747c"
-                },
-                {
-                    path:"/videos/videos-logistica",
-                    pathname:"Gravação das Câmeras",
-                    color:"#1d4e53"
-                },
-            ]
-        }]
+        //     {
+        //         pathname:"Vídeo Completo",
+        //         color: "#006c9d",
+        //         video:"nameVideo",
+        //     },
+        //     {
+        //     pathname:"Inóculo",
+        //     color: "#005278",
+        //     video:"",
+        //     subRoutes:[
+        //         {
+        //             path:"/cams/streams-inoculo",
+        //             pathname:"Câmeras ao Vivo",
+        //             color:"#003851"
+        //         },
+        //         {
+        //             path:"/videos/videos-inoculo",
+        //             pathname:"Gravação das Câmeras",
+        //             color:"#5f6d16"
+        //         },
+        //     ]
+        // },
+        // {
+        //     pathname:"Upstream",
+        //     color: "#003851",
+        //     video:"",
+        //     subRoutes:[
+        //         {
+        //             path:"/cams/streams-upstreams",
+        //             pathname:"Câmeras ao Vivo",
+        //             color:"#5f6d16"
+        //         },
+        //         {
+        //             path:"/videos/videos-upstreams",
+        //             pathname:"Gravação das Câmeras",
+        //             color:"#a3b73a"
+        //         },
+        //     ]
+        // },
+        // {
+        //     pathname:"Downstream",
+        //     color: "#5f6d16",
+        //     video:"",
+        //     subRoutes:[
+        //         {
+        //             path:"/cams/streams-downstreams",
+        //             pathname:"Câmeras ao Vivo",
+        //             color:"#a3b73a"
+        //         },
+        //         {
+        //             path:"/videos/videos-downstreams",
+        //             pathname:"Gravação das Câmeras",
+        //             color:"#bbd627"
+        //         },
+        //     ]
+        // },
+        // {
+        //     pathname:"Fill and Finish",
+        //     subText:"(Formulação e Envase)",
+        //     color: "#a3b73a",
+        //     video:"",
+        //     subRoutes:[
+        //         {
+        //             path:"/cams/streams-fill-and-finish",
+        //             pathname:"Câmeras ao Vivo",
+        //             color:"#bbd627"
+        //         },
+        //         {
+        //             path:"/videos/videos-fill-and-finish",
+        //             pathname:"Gravação das Câmeras",
+        //             color:"#79adab"
+        //         },
+        //     ]
+        // },
+        // {
+        //     pathname:"Embalagem Secundária",
+        //     color: "#bbd627",
+        //     video:"",
+        //     subRoutes:[
+        //         {
+        //             path:"/cams/streams-embalagem-secundaria",
+        //             pathname:"Câmeras ao Vivo",
+        //             color:"#79adab"
+        //         },
+        //         {
+        //             path:"/videos/videos-embalagem-secundaria",
+        //             pathname:"Gravação das Câmeras",
+        //             color:"#27747c"
+        //         },
+        //     ]
+        // },
+        // {
+        //     pathname:"Logística",
+        //     color: "#79adab",
+        //     video:"",
+        //     subRoutes:[
+        //         {
+        //             path:"/cams/streams-logistica",
+        //             pathname:"Câmeras ao Vivo",
+        //             color:"#27747c"
+        //         },
+        //         {
+        //             path:"/videos/videos-logistica",
+        //             pathname:"Gravação das Câmeras",
+        //             color:"#1d4e53"
+        //         },
+        //     ]
+        //  }
+        ]
     },
     {
         name: "Vídeo Institucional",
@@ -452,116 +454,116 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:processosProdutivos,
         color:"#008dcf",
         timer:300,
-        video:"",
+        video:"productive_process.mp4",
         routes:[
-            {
-                pathname:"Complete Video",
-                color: "#006c9d",
-                video:"institutional.mp4",
-            },
-            {
-                pathname:"Inoculum",
-                color: "#005278",
-                video:"",
-                subRoutes:[
-                    {
-                        path:"/cams/streams-inoculo",
-                        pathname:"Live Cameras",
-                        color:"#003851"
-                    },
-                    {
-                        path:"/videos/videos-inoculo",
-                        pathname:"Camera Recording",
-                        color:"#5f6d16"
-                    },
-                ]
-            },
-            {
-                pathname:"Upstream",
-                color: "#003851",
-                video:"",
-                subRoutes:[
-                    {
-                        path:"/cams/streams-upstreams",
-                        pathname:"Live Cameras",
-                        color: "#5f6d16"
-                    },
-                    {
-                        path:"/videos/videos-upstreams",
-                        pathname:"Camera Recording",
-                        color: "#a3b73a"
-                    },
-                ]
-            },
-            {
-                pathname:"Downstream",
-                color: "#5f6d16",
-                video:"",
-                subRoutes:[
-                    {
-                        path:"/cams/streams-downstreams",
-                        pathname:"Live Cameras",
-                        color:"#a3b73a"
-                    },
-                    {
-                        path:"/videos/videos-downstreams",
-                        pathname:"Camera Recording",
-                        color:"#bbd627"
-                    },
-                ]
-            },
-            {
-                pathname:"Fill and Finish",
-                subText:"(Formulation and Filling)",
-                color: "#a3b73a",
-                video:"",
-                subRoutes:[
-                    {
-                        path:"/cams/streams-fill-and-finish",
-                        pathname:"Live Cameras",
-                        color:"#bbd627"
-                    },
-                    {
-                        path:"/videos/videos-fill-and-finish",
-                        pathname:"Camera Recording",
-                        color:"#79adab"
-                    },
-                ]
-            },
-            {
-                pathname:"Secondary Packaging",
-                color: "#bbd627",
-                video:"",
-                subRoutes:[
-                    {
-                        path:"/cams/streams-embalagem-secundaria",
-                        pathname:"Live Cameras",
-                        color:"#79adab"
-                    },
-                    {
-                        path:"/videos/videos-embalagem-secundaria",
-                        pathname:"Camera Recording",
-                        color:"#27747c"
-                    },
-                ]
-            },
-            {
-                pathname:"Logistics",
-                color: "#79adab",
-                video:"",
-                subRoutes:[
-                    {
-                        path:"/cams/streams-logistica",
-                        pathname:"Live Cameras",
-                        color: "#27747c"
-                    },
-                    {
-                        path:"/videos/videos-logistica",
-                        pathname:"Camera Recording",
-                        color: "#1d4e53"
-                    },
-                ]
-            }
+            // {
+            //     pathname:"Complete Video",
+            //     color: "#006c9d",
+            //     video:"institutional.mp4",
+            // },
+            // {
+            //     pathname:"Inoculum",
+            //     color: "#005278",
+            //     video:"",
+            //     subRoutes:[
+            //         {
+            //             path:"/cams/streams-inoculo",
+            //             pathname:"Live Cameras",
+            //             color:"#003851"
+            //         },
+            //         {
+            //             path:"/videos/videos-inoculo",
+            //             pathname:"Camera Recording",
+            //             color:"#5f6d16"
+            //         },
+            //     ]
+            // },
+            // {
+            //     pathname:"Upstream",
+            //     color: "#003851",
+            //     video:"",
+            //     subRoutes:[
+            //         {
+            //             path:"/cams/streams-upstreams",
+            //             pathname:"Live Cameras",
+            //             color: "#5f6d16"
+            //         },
+            //         {
+            //             path:"/videos/videos-upstreams",
+            //             pathname:"Camera Recording",
+            //             color: "#a3b73a"
+            //         },
+            //     ]
+            // },
+            // {
+            //     pathname:"Downstream",
+            //     color: "#5f6d16",
+            //     video:"",
+            //     subRoutes:[
+            //         {
+            //             path:"/cams/streams-downstreams",
+            //             pathname:"Live Cameras",
+            //             color:"#a3b73a"
+            //         },
+            //         {
+            //             path:"/videos/videos-downstreams",
+            //             pathname:"Camera Recording",
+            //             color:"#bbd627"
+            //         },
+            //     ]
+            // },
+            // {
+            //     pathname:"Fill and Finish",
+            //     subText:"(Formulation and Filling)",
+            //     color: "#a3b73a",
+            //     video:"",
+            //     subRoutes:[
+            //         {
+            //             path:"/cams/streams-fill-and-finish",
+            //             pathname:"Live Cameras",
+            //             color:"#bbd627"
+            //         },
+            //         {
+            //             path:"/videos/videos-fill-and-finish",
+            //             pathname:"Camera Recording",
+            //             color:"#79adab"
+            //         },
+            //     ]
+            // },
+            // {
+            //     pathname:"Secondary Packaging",
+            //     color: "#bbd627",
+            //     video:"",
+            //     subRoutes:[
+            //         {
+            //             path:"/cams/streams-embalagem-secundaria",
+            //             pathname:"Live Cameras",
+            //             color:"#79adab"
+            //         },
+            //         {
+            //             path:"/videos/videos-embalagem-secundaria",
+            //             pathname:"Camera Recording",
+            //             color:"#27747c"
+            //         },
+            //     ]
+            // },
+            // {
+            //     pathname:"Logistics",
+            //     color: "#79adab",
+            //     video:"",
+            //     subRoutes:[
+            //         {
+            //             path:"/cams/streams-logistica",
+            //             pathname:"Live Cameras",
+            //             color: "#27747c"
+            //         },
+            //         {
+            //             path:"/videos/videos-logistica",
+            //             pathname:"Camera Recording",
+            //             color: "#1d4e53"
+            //         },
+            //     ]
+            // }
         ]
     },
     {
@@ -569,13 +571,13 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:ImgvideoInstitucional,
         color:"#006c9d",
         timer:300,
-        video:"",
+        video:"institutional.mp4",
         routes:[
-            {
-                pathname:"Without Subtitles",
-                color: "#005278",
-                video:"institutional.mp4",
-            },
+            // {
+            //     pathname:"Without Subtitles",
+            //     color: "#005278",
+            //     video:"institutional.mp4",
+            // },
         ]
     },
     {
