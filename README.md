@@ -22,7 +22,8 @@ yarn build # Cria um build do projeto para produção.
 ### 2. Registros de Câmeras
 - **Endpoint:** `/camerasRecords`
 - **Descrição:** Lista vídeos disponíveis.
-- **Suporta Formatos:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`, `.mp4`, `.webm`, `.ogg`
+- **Suporta Formatos Vídeos:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`, `.mp4`, `.webm`, `.ogg`
+- **Suporta Formatos Capa:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`
 - **Exemplo de chamada:** `http://localhost:3000/camerasRecords?optionMenu=PT/Preparos`
 
 ### 3. Reprodução de Vídeo
