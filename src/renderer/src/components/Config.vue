@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import directoryPath from "@renderer/stores/useDirectoryPath";
-import { ref, Ref } from "vue";
+import { ref, Ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 const props = defineProps<{existPath:boolean}>();
 const emit = defineEmits(['handler-modal']);
@@ -9,6 +9,10 @@ const error:Ref<boolean> = ref(false);
 const directory = directoryPath();
 const msgError:Ref<string> = ref('');
 const { directoryExist, path } = storeToRefs(directory)
+
+onMounted(() => {
+    directory.verifyDirectoryExist();
+})
 
 const submitDir:() => Promise<void> = async () =>{
     console.log("okay")

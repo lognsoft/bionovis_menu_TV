@@ -21,7 +21,9 @@ const directoryPath = defineStore('directory', ():State => {
                 throw 'okay';
             };
             const response:{ path:string } = await data.json();
-            path.value = response.path;
+            if(typeof response.path == 'string'){
+                path.value = response.path;
+            }
 
         } catch (error) {
             directoryExist.value = true;
