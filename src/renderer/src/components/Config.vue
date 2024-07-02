@@ -8,7 +8,7 @@ const dir:Ref<string> = ref('');
 const error:Ref<boolean> = ref(false);
 const directory = directoryPath();
 const msgError:Ref<string> = ref('');
-const { directoryExist } = storeToRefs(directory)
+const { directoryExist, path } = storeToRefs(directory)
 
 const submitDir:() => Promise<void> = async () =>{
     console.log("okay")
@@ -50,6 +50,7 @@ const submitEnterDir:(event:Event) => void = (event:Event) => {
     <div class="modal-container">
         <div class="modal-alert">
             <h2 class="message">Selecione um caminho para os arquivos</h2>
+            <p v-if="path !== undefined" class="text-center"><strong>diretório atual: </strong>{{ path }}</p>
             <p class="text-center"><strong>Exemplo: </strong>C:\Users\userExample\exemple</p>
             <input @input="clearErr" @keydown="submitEnterDir" class="input-dir" :class="{'border-[#238eb7] mb-5':error == false, 'border-orange-400':error == true}" type="text" placeholder="C:\Users\userExample\exemple" v-model="dir"/>
             <small class="text-orange-400 mb-5 block" v-show="error">{{ msgError }}</small>
