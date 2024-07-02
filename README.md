@@ -12,14 +12,44 @@ yarn dev   # Inicia o projeto em modo de desenvolvimento.
 yarn build # Cria um build do projeto para produção.
 \```
 
-## Comunicação FrontEnd e BackEnd
-O FrontEnd se comunica com o BackEnd exclusivamente através das seguintes rotas:
-- `/configureDirectoriesPath` - Atualiza ou cria diretório raize e pastas internas. EX: - http://localhost:3000/configureDirectoriesPath
-- `/camerasRecords` - Lista vídeos. - EX: - http://localhost:3000/camerasRecords?optionMenu=PT/Preparos
-- `/startRecord` - Serve ou reproduz vídeo individualmente. EX: - http://localhost:3000/startRecord?DirName=Downstream&optionMenu=PT&ImageName=teste1.mp4
-- `/openImage` - Serve ou reproduz imagem individualmente. EX: - http://localhost:3000/openImage?DirName=Downstream&optionMenu=PT&ImageName=teste1.jpg
-- `/presentations` - Lista conteúdos diversos. EX: - http://localhost:3000/presentations?optionMenu=EN/Presentations 
-- `/checkDirectoriesIfNotExist` - Verifica diretórios, caso algum diretório não exista, será criado automaticamente, essa rota só funciona caso o caminho do diretório raiz esteja referenciado no directoriesConfig.json, caso não exista, será retornado 404. EX: - http://localhost:3000/checkDirectoriesIfNotExist
+## API Disponíveis
+
+### 1. Configuração de Diretórios
+- **Endpoint:** `/configureDirectoriesPath`
+- **Descrição:** Atualiza ou cria o diretório raiz e pastas internas.
+- **Exemplo de chamada:** `http://localhost:3000/configureDirectoriesPath`
+
+### 2. Registros de Câmeras
+- **Endpoint:** `/camerasRecords`
+- **Descrição:** Lista vídeos disponíveis.
+- **Suporta Formatos:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`, `.mp4`, `.webm`, `.ogg`
+- **Exemplo de chamada:** `http://localhost:3000/camerasRecords?optionMenu=PT/Preparos`
+
+### 3. Reprodução de Vídeo
+- **Endpoint:** `/startRecord`
+- **Descrição:** Serve ou reproduz um vídeo individualmente.
+- **Exemplo de chamada:** `http://localhost:3000/startRecord?DirName=Downstream&optionMenu=PT&ImageName=teste1.mp4`
+
+### 4. Visualização de Imagem
+- **Endpoint:** `/openImage`
+- **Descrição:** Serve ou reproduz uma imagem individualmente.
+- **Exemplo de chamada:** `http://localhost:3000/openImage?DirName=Downstream&optionMenu=PT&ImageName=teste1.jpg`
+
+### 5. Apresentações e Documentos
+- **Endpoint:** `/presentations`
+- **Descrição:** Lista conteúdos diversos, incluindo formatos do pacote Office.
+- **Suporta Formatos:** `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`, `.pdf`, `.pptx`, `.docx`, `.xlsx`
+- **Exemplo de chamada:** `http://localhost:3000/presentations?optionMenu=EN/Presentations`
+
+### 6. Verificação de Diretórios
+- **Endpoint:** `/checkDirectoriesIfNotExist`
+- **Descrição:** Verifica se os diretórios especificados existem; cria automaticamente se não existirem.
+- **Exemplo de chamada:** `http://localhost:3000/checkDirectoriesIfNotExist`
+- **Observação:** Esta rota só funciona se o caminho do diretório raiz estiver configurado no `directoriesConfig.json`. Se o arquivo não existir, será retornado erro 404.
+
+## Uso
+Para interagir com estas rotas, utilize as URLs de exemplo fornecidas, substituindo os parâmetros conforme necessário para atender ao contexto de sua aplicação.
+
 
 ## Criação de Instalador
 Utilizamos o Inno Installer para a criação do instalador. É essencial configurar o `ffmpeg.exe` no Inno Installer como uma variável de ambiente durante a instalação. Isso adiciona a raiz do projeto Bionovis nas variáveis de ambiente do sistema operacional. No diretório raiz do projeto, existe um arquivo chamado `innoInstaller.ino`, que contém exemplos de como gerar o instalador corretamente.
