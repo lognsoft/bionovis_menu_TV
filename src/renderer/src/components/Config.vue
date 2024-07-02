@@ -51,7 +51,7 @@ const submitEnterDir:(event:Event) => void = (event:Event) => {
         <div class="modal-alert">
             <h2 class="message">Selecione um caminho para os arquivos</h2>
             <p v-if="path !== undefined" class="text-center"><strong>diretório atual: </strong>{{ path }}</p>
-            <p class="text-center"><strong>Exemplo: </strong>C:\Users\userExample\exemple</p>
+            <p v-else class="text-center"><strong>Exemplo: </strong>C:\Users\userExample\exemple</p>
             <input @input="clearErr" @keydown="submitEnterDir" class="input-dir" :class="{'border-[#238eb7] mb-5':error == false, 'border-orange-400':error == true}" type="text" placeholder="C:\Users\userExample\exemple" v-model="dir"/>
             <small class="text-orange-400 mb-5 block" v-show="error">{{ msgError }}</small>
             <div class="buttons">

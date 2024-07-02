@@ -44,7 +44,7 @@ app.get('/checkDirectoriesIfNotExist', async (req, res) => {
 
         if (data.directoryFisicalPath != null) {
             await CreateDirectories();
-            res.json({path:rootDirectoryPath});
+            res.json({ path: rootDirectoryPath });
         } else {
             res.sendStatus(404);
         }
