@@ -5,8 +5,11 @@ import useModalStore from "@renderer/stores/useModalStore";
 import useAudioStore from "@renderer/stores/useAudioStore";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import Back from "@renderer/components/icons/Back.vue";
+import Gear from "@renderer/components/icons/Gear.vue";
 import Modal from "@renderer/components/Modal.vue";
+import Config from "@renderer/components/Config.vue";
 import { storeToRefs } from "pinia";
+import { ref, Ref } from "vue";
 
 //conteúdo da página
 import PageStart from "@renderer/constants/StartPage"
@@ -23,6 +26,11 @@ const languages = useLanguageStore();
 const { play, startApp } = useAudioStore();
 const { modal } = storeToRefs(store);
 const { language } = storeToRefs(languages);
+const config:Ref<boolean> = ref(false);
+const handlerModal:() => void = ():void => {
+    play();
+    config.value = !config.value
+};
 
 onMounted(() => {
     languages.getKeyLanguage();
@@ -51,7 +59,9 @@ function closeApp(){
             </label>
         </div>
 
-
+        <Transition name="modal" mode="out-in">
+            <Config v-if="config" @handler-modal="handlerModal"/>
+        </Transition>
         <Transition name="modal" mode="out-in">
             <Modal v-show="modal"/>
         </Transition>
@@ -70,7 +80,8 @@ function closeApp(){
             </div>
         </div>
         <div class="button-close">
-            <MenuButton :text-button="PageStart[language].close" @click="closeApp" :toggle="true" :timer="300" color="#3090b9"><Back/></MenuButton>
+            <MenuButton :text-button="PageStart[language].close" @click="closeApp" :toggle="true" :timer="200" color="#3090b9"><Back/></MenuButton>
+            <MenuButton :text-button="PageStart[language].config" @click="handlerModal" :toggle="true" :timer="400" color="#3090b9"><Gear/></MenuButton>
         </div>
     </main>
 </template>
@@ -117,7 +128,7 @@ main{
 }
 
 .button-close{
-    @apply fixed top-full right-[70px];
+    @apply fixed flex gap-1 top-full right-[70px];
     transform: skewX(-10deg);
 }
 

@@ -8,7 +8,7 @@ const windowConfig = {
     title: "Bionovis",
     minWidth: 1200,
     minHeight: 768,
-    fullscreen: false,
+    fullscreen: true,
     resizable: false,
     frame: false,
     show: false,

@@ -8,7 +8,7 @@ const app = express.Router();
 app.post('/configureDirectoriesPath', async (req, res) => {
     try {
         const newDirectoryPath = req.body.newDirectory;//Diretorio de arquivos selecionado pelo cliente.
-
+        console.log(newDirectoryPath);
         if (!newDirectoryPath) {
             return res.status(400).json({ message: 'O novo caminho do diretório é necessário.' });
         }
