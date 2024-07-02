@@ -20,8 +20,9 @@ export default defineConfig({
       fs:{
         allow: [
           'c:/',
-          'D:/',
-          'd:'
+          'd:/',
+          'C:/',
+          'D:/'
         ]
       }
     }

@@ -20,13 +20,35 @@ let interval:undefined | ReturnType<typeof setInterval>;
 const menuOption:ComputedRef<string> = computed(() => language.value === 'default' ? 'PT': 'EN');
 
 async function getVideos(){
-    
     const request = await fetch(`http://localhost:3000/camerasRecords?optionMenu=${menuOption.value}/${ pasta.value }`);
-
     const data:ReadonlyArray<{video:string, image:string | boolean}> = await request.json();
-    console.log(data);
-    videos.value = data;
+
+    const mapData:Array<{video:string, image:string | boolean}> = await Promise.all(data.map(async (val) => {
+        if(typeof val.image === 'boolean'){
+            return {
+                video: val.video,
+                image: false
+            }
+        } else {
+            return {
+                video: val.video,
+                image: await renderImage(val.image)
+            }
+        }
+    }));
+
+    videos.value = mapData;
     
+}
+
+async function renderImage(ImageName:string):Promise<string>{
+    let image:ReadonlyArray<string> | string = ImageName.split('/');
+    image = image[image.length - 1];
+
+    const data = await fetch(`http://localhost:3000/openImage?ImageName=${image}&optionMenu=${menuOption.value}&DirName=${pasta.value}`);
+    console.log(data.url);
+
+    return data.url;
 }
 
 onMounted(() => {
@@ -44,6 +66,7 @@ onMounted(() => {
     },100);
 });
 
+
 onBeforeUnmount(() => {
     clearInterval(interval);
     interval = undefined;
@@ -60,7 +83,7 @@ onBeforeUnmount(() => {
 
                         <RouterLink  v-for="video,index in videos" :key="index" :style="`background-image: url(${video.image}`" :to="{name:'video', params:{videoName: video.video}}" class="link-video">
                             <template v-if="typeof video.image == 'string'">
-                                <img :src="`/@fs/${video.image}`" :alt="video.video">
+                                <img :src="video.image" :alt="video.video">
                             </template> 
                             <span>{{ video.video }}</span>
                         </RouterLink>
