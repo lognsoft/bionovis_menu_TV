@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "directoryFisicalPath": "C:\\Users\\alant\\exemple",
+=======
+  "directoryFisicalPath": null,
+>>>>>>> dc2ade311174ad58f7d3876cc4bc6e2aa2b30c5b
   "directoriesEN": [
     "Preparations",
     "Upstream",
