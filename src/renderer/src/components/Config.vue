@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import directoryPath from "@renderer/stores/useDirectoryPath";
 import { ref, Ref } from "vue";
+import { storeToRefs } from "pinia";
+const props = defineProps<{existPath:boolean}>();
 const emit = defineEmits(['handler-modal']);
 const dir:Ref<string> = ref('');
 const error:Ref<boolean> = ref(false);
+const directory = directoryPath();
+const { directoryExist } = storeToRefs(directory)
 
 const submitDir:() => Promise<void> = async () =>{
     console.log("okay")
@@ -18,6 +23,9 @@ const submitDir:() => Promise<void> = async () =>{
             },
             body: JSON.stringify({ newDirectory:dir.value })
         });
+        directoryExist.value = false;
+        emit('handler-modal')
+
     } catch (error) {
         error.value = true;
     } 
@@ -38,7 +46,7 @@ const submitEnterDir:(event:Event) => void = (event:Event) => {
             <input @input="clearErr" @keydown="submitEnterDir" class="input-dir" :class="{'border-[#238eb7] mb-5':error == false, 'border-orange-400':error == true}" type="text" placeholder="C:\Users\userExample\exemple" v-model="dir"/>
             <small class="text-orange-400 mb-5 block" v-show="error">Informe um diretório</small>
             <div class="buttons">
-                <button class="button-cancel" @click="emit('handler-modal')">fechar</button>
+                <button v-if="!props.existPath" :disabled="props.existPath" class="button-cancel" @click="emit('handler-modal')">fechar</button>
                 <button class="button-confirm" @click="submitDir">confirmar</button>
             </div>
         </div>

@@ -1,23 +1,17 @@
-import { IRoutes } from "@renderer/types/IRoutes";
+import type { IRoutes } from "@renderer/types/IRoutes";
+import type ILanguage from "@renderer/types/ILanguage";
 import areasProdutivas from "@renderer/assets/images/icons/icon_areas_produtivas.svg";
 import processosProdutivos from "@renderer/assets/images/icons/atomo.svg";
 import ImgvideoInstitucional from "@renderer/assets/images/icons/icone_tv.svg";
 import apresentacoesDiversas from "@renderer/assets/images/icons/icone_tubo1.svg";
 
-
-import videoInstitucional from "@renderer/assets/videos/Institucional_PT_Sem_Legenda.mp4";
-import videoInstitucionalLegenda from "@renderer/assets/videos/Institucional_PT_Legendado.mp4";
-
-interface RoutesLanguages{
-    default:ReadonlyArray<IRoutes>;
-    english:ReadonlyArray<IRoutes>;
-};
 const PortugueseRoutes:ReadonlyArray<IRoutes> = [
     {
         name: "Áreas Produtivas",
         image:areasProdutivas,
         color:"#00a5db",
         timer:900,
+        video:"",
         routes:[
             {
                 pathname:"Preparos",
@@ -162,11 +156,12 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:processosProdutivos,
         color:"#008dcf",
         timer:300,
+        video:"",
         routes:[
             {
                 pathname:"Vídeo Completo",
                 color: "#006c9d",
-                video:videoInstitucional,
+                video:"nameVideo",
             },
             {
             pathname:"Inóculo",
@@ -275,18 +270,19 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
     {
         name: "Vídeo Institucional",
         image:ImgvideoInstitucional,
+        video:"",
         color:"#006c9d",
         timer:300,
         routes:[
             {
                 pathname:"Com Legenda",
                 color: "#005278",
-                video:videoInstitucionalLegenda,
+                video:"institucional_legendado.mp4",
             },
             {
                 pathname:"Sem Legenda",
                 color: "#003851",
-                video:videoInstitucional,
+                video:"institucional",
             },
         ]
         // video:videoInstitucional
@@ -296,6 +292,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:apresentacoesDiversas,
         color:"#005277",
         timer:300,
+        video:"nameVideo",
         routes:[
             
         ]
@@ -309,6 +306,7 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:areasProdutivas,
         color:"#00a5db",
         timer:900,
+        video:"",
         routes:[
             {
                 pathname:"Preparations",
@@ -454,11 +452,12 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:processosProdutivos,
         color:"#008dcf",
         timer:300,
+        video:"",
         routes:[
             {
                 pathname:"Complete Video",
                 color: "#006c9d",
-                video:videoInstitucional,
+                video:"institutional.mp4",
             },
             {
                 pathname:"Inoculum",
@@ -570,11 +569,12 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:ImgvideoInstitucional,
         color:"#006c9d",
         timer:300,
+        video:"",
         routes:[
             {
                 pathname:"Without Subtitles",
                 color: "#005278",
-                video:videoInstitucional,
+                video:"institutional",
             },
         ]
     },
@@ -583,13 +583,14 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         image:apresentacoesDiversas,
         color:"#005277",
         timer:300,
+        video:"",
         routes:[
         ]
     }
 ];
 
 
-const Routes:RoutesLanguages = {
+const Routes:ILanguage<ReadonlyArray<IRoutes>> = {
     default: PortugueseRoutes,
     english: EnglishRoutes,
 }

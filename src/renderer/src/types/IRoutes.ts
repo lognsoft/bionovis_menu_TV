@@ -7,7 +7,7 @@ export default interface IRoute{
     pathname:string;
     color:string;
     subRoutes?:ReadonlyArray<ISubRoute>
-    video?:string;
+    video:string;
 }
 
 export interface IRoutes {
@@ -16,5 +16,5 @@ export interface IRoutes {
     color:string;
     timer:number;
     routes?:ReadonlyArray<IRoute>;
-    video?:string;
+    video:string;
 }

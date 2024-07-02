@@ -4,12 +4,12 @@ import MenuButton from "@renderer/components/navigate/buttons/MenuButton.vue";
 import useModalStore from "@renderer/stores/useModalStore";
 import useAudioStore from "@renderer/stores/useAudioStore";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
+import directoryPath from "@renderer/stores/useDirectoryPath";
 import Back from "@renderer/components/icons/Back.vue";
 import Gear from "@renderer/components/icons/Gear.vue";
 import Modal from "@renderer/components/Modal.vue";
 import Config from "@renderer/components/Config.vue";
 import { storeToRefs } from "pinia";
-import { ref, Ref } from "vue";
 
 //conteúdo da página
 import PageStart from "@renderer/constants/StartPage"
@@ -22,14 +22,15 @@ import { onMounted } from "vue";
 //stores
 const store = useModalStore();
 const languages = useLanguageStore();
+const directory = directoryPath();
 
 const { play, startApp } = useAudioStore();
 const { modal } = storeToRefs(store);
 const { language } = storeToRefs(languages);
-const config:Ref<boolean> = ref(false);
+const { configModal, directoryExist } = storeToRefs(directory);
 const handlerModal:() => void = ():void => {
     play();
-    config.value = !config.value
+    configModal.value = !configModal.value
 };
 
 onMounted(() => {
@@ -60,7 +61,7 @@ function closeApp(){
         </div>
 
         <Transition name="modal" mode="out-in">
-            <Config v-if="config" @handler-modal="handlerModal"/>
+            <Config v-if="configModal" @handler-modal="handlerModal" :existPath="directoryExist"/>
         </Transition>
         <Transition name="modal" mode="out-in">
             <Modal v-show="modal"/>

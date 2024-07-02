@@ -45,7 +45,7 @@ function closeVideo(){
         <!-- Menu principal -->
         <div class="navigate" v-if="selectedRouter === null && initialRouter === null">
             <template v-for="area,index in store.areas" :key="index">
-                <template v-if="area.video">
+                <template v-if="area.video == true">
                     <NavigateBigCard
                         class="cursor-pointer"
                         :timer="((index+1)* 100)"
@@ -77,7 +77,7 @@ function closeVideo(){
         <div class="navigate" v-if="initialRouter !== null && selectedRouter == null && initialRouter.routes">
             <NavigateBigCard :timer="100" :toggle="toggleMenu" :color="initialRouter.color" :text-button="initialRouter.name" :image="initialRouter.image"/>
             <template v-for="route,index in initialRouter.routes" :key="index">
-                <template v-if="route.video">
+                <template v-if="route.video == true">
                     <MiddleCard
                         class="cursor-pointer"
                         :timer="((index+2)*100)"
