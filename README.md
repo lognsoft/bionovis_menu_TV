@@ -77,7 +77,7 @@ O último registro adiciona a variável de ambiente `Bionovis`.
 ### Nome dos arquivos que devem estar no diretório
 - **Institucional PT legendado**: `institucional_legendado.mp4`
 - **Institucional PT sem legenda**: `institucional.mp4`
-- **Institucional PT**: `institutional.mp4`
+- **Institucional EN**: `institutional.mp4`
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 
 ### Câmeras Gravadas
