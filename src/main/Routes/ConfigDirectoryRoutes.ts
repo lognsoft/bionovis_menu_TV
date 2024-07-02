@@ -1,7 +1,6 @@
 import express from 'express';
 import { updateDirectoryFisicalPath } from './tools/managerRootDirectorie';
 import { CreateDirectories } from './tools/createSubDirectories';
-import fs from 'fs';
 import path from 'path';
 import { getRootDirectoryFisicalPath } from './tools/managerRootDirectorie';
 import fsAsync from 'fs/promises';
