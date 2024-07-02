@@ -292,7 +292,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         image:apresentacoesDiversas,
         color:"#005277",
         timer:300,
-        video:"institucional.mp4",
+        video:"",
         routes:[
             
         ]
