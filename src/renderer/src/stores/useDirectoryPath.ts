@@ -15,12 +15,13 @@ const directoryPath = defineStore('directory', ():State => {
     async function verifyDirectoryExist():Promise<void>{
         try {
             const data = await fetch("http://localhost:3000/checkDirectoriesIfNotExist");
-            if(data.status == 404){
+            if(data.status == 404 || data.status == 500){
                 directoryExist.value = true;
                 configModal.value = true;
             };
         } catch (error) {
-            console.error(error);
+            directoryExist.value = true;
+            configModal.value = true;
         }
     }
 

@@ -36,11 +36,9 @@ const flagVideo:Ref<boolean> = ref(false);
 const video:Ref<string> = ref('')
 
 async function playVideo(data:string, name:string):Promise<void>{
-    console.log(lang.value)
     try {
         const req = await fetch(`http://localhost:3000/startRecord?DirName=${name}&optionMenu=${lang.value}&VideoName=${data}`);
         video.value = String(req.url);
-        // console.log(req.url);
         flagVideo.value = true;
     } catch (error) {
         console.error(error);
