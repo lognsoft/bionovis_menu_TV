@@ -16,8 +16,10 @@ yarn build # Cria um build do projeto para produção.
 O FrontEnd se comunica com o BackEnd exclusivamente através das seguintes rotas:
 - `/configureDirectoriesPath` - Atualiza ou cria diretório raize e pastas internas. EX: - http://localhost:3000/configureDirectoriesPath
 - `/camerasRecords` - Lista vídeos. - EX: - http://localhost:3000/camerasRecords?optionMenu=PT/Preparos
-- `/startRecord` - Serve ou reproduz vídeo individualmente. EX: - http://localhost:3000/openImage?DirName=Downstream&optionMenu=PT&ImageName=teste1.mp4
-- `/presentations` - Lista conteúdos diversos. EX: - http://localhost:3000/presentations?optionMenu=EN/Presentations
+- `/startRecord` - Serve ou reproduz vídeo individualmente. EX: - http://localhost:3000/startRecord?DirName=Downstream&optionMenu=PT&ImageName=teste1.mp4
+- `/openImage` - Serve ou reproduz imagem individualmente. EX: - http://localhost:3000/openImage?DirName=Downstream&optionMenu=PT&ImageName=teste1.jpg
+- `/presentations` - Lista conteúdos diversos. EX: - http://localhost:3000/presentations?optionMenu=EN/Presentations 
+- `/checkDirectoriesIfNotExist` - Verifica diretórios, caso algum diretório não exista, será criado automaticamente, essa rota só funciona caso o caminho do diretório raiz esteja referenciado no directoriesConfig.json, caso não exista, será retornado 404. EX: - http://localhost:3000/checkDirectoriesIfNotExist
 
 ## Criação de Instalador
 Utilizamos o Inno Installer para a criação do instalador. É essencial configurar o `ffmpeg.exe` no Inno Installer como uma variável de ambiente durante a instalação. Isso adiciona a raiz do projeto Bionovis nas variáveis de ambiente do sistema operacional. No diretório raiz do projeto, existe um arquivo chamado `innoInstaller.ino`, que contém exemplos de como gerar o instalador corretamente.
