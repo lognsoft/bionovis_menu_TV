@@ -368,12 +368,12 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-area-passagem",
-                        pathname:"Câmeras ao Vivo",
+                        pathname:"Live Cameras",
                         color: "#5f6d16"
                     },
                     {
                         path:"/videos/videos-Passage_Area",
-                        pathname:"Gravação das Câmeras",
+                        pathname:"Camera Recording",
                         color: "#a3b73a"
                     },
                 ]
@@ -437,12 +437,12 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-qualidade",
-                        pathname:"Câmeras ao Vivo",
+                        pathname:"Live Cameras",
                         color: "#79adab"
                     },
                     {
                         path:"/videos/videos-Quality",
-                        pathname:"Gravação das Câmeras",
+                        pathname:"Camera Recording",
                         color: "#27747c"
                     },
                 ]
