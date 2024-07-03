@@ -91,6 +91,13 @@ Para interagir com estas rotas, utilize as URLs de exemplo fornecidas, substitui
 - **Institucional EN**: `institutional.mp4`
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 
+## Processos produtivos
+
+### Nome dos arquivos que devem estar no diretório
+- **Processo Produtivo PT**: `processo_produtivo.mp4`
+- **Processo Produtivo EN**: `product_process.mp4`
+- **Vídeos**: `.mp4`, `.webm`, `.ogg`
+
 ### Câmeras Gravadas
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 - **Capa do vídeo**: `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`
