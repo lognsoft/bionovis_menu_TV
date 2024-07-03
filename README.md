@@ -101,3 +101,15 @@ Para interagir com estas rotas, utilize as URLs de exemplo fornecidas, substitui
 ### Câmeras Gravadas
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 - **Capa do vídeo**: `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`
+
+
+## Conexão com diretórios do SharePoint
+
+Para garantir o funcionamento correto dos vídeos:
+
+1. **Partição de Instalação**: É importante que o menu seja instalado na mesma partição onde estão localizados os arquivos do SharePoint, por exemplo, se o Sharepoint estiver na unidade C:, é importante que o menu também esteja na unidade C:.
+
+2. **Identificação e Reprodução**: Caso contrário, os vídeos não serão identificados e, portanto, não poderão ser reproduzidos.
+
+
+
