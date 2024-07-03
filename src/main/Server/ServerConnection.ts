@@ -1,8 +1,8 @@
 import express from 'express';
 import liveCameraRoutes from '../Routes/LiveCameraRoutes'; // Importando o router de câmeras
 import recordCameraRoutes from '../Routes/RecordCameraRoutes'; // Importando o router de câmeras
-import aprensentationRoutes from '../Routes/PresentationRoutes'; // Importando o router de apresentações
-import configDirectoryRoutes from '../Routes/configDirectoryRoutes'; // Importando o router de apresentações
+import aprensentationRoutes from '../Routes/presentationRoutes'; // Importando o router de apresentações
+import configDirectoryRoutes from '../Routes/ConfigDirectoryRoutes'; // Importando o router de apresentações
 import { WebsocketRun } from './WebSocketConnection';
 
 const PORT = 3000;
@@ -15,7 +15,7 @@ export function ServerConnection() {
         res.header('Access-Control-Allow-Origin', '*');
         res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
         res.header('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-        res.header('Access-Control-Allow-Credentials', true);
+        res.header('Access-Control-Allow-Credentials', 'true');
         next();
     });      
 
