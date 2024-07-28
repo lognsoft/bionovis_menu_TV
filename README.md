@@ -95,9 +95,21 @@ Para interagir com estas rotas, utilize as URLs de exemplo fornecidas, substitui
 
 ### Nome dos arquivos que devem estar no diretório
 - **Processo Produtivo PT**: `processo_produtivo.mp4`
-- **Processo Produtivo EN**: `product_process.mp4`
+- **Processo Produtivo EN**: `productive_process.mp4`
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 
 ### Câmeras Gravadas
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 - **Capa do vídeo**: `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`
+
+
+## Conexão com diretórios do SharePoint
+
+Para garantir o funcionamento correto dos vídeos:
+
+1. **Partição de Instalação**: É importante que o menu seja instalado na mesma partição onde estão localizados os arquivos do SharePoint, por exemplo, se o Sharepoint estiver na unidade C:, é importante que o menu também esteja na unidade C:.
+
+2. **Identificação e Reprodução**: Caso contrário, os vídeos não serão identificados e, portanto, não poderão ser reproduzidos.
+
+
+
