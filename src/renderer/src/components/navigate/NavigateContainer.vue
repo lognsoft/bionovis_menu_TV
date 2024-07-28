@@ -11,13 +11,16 @@ import Menu from "@renderer/components/icons/Menu.vue";
 import useRouteNavigate from "@renderer/stores/useRouteNavigate";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import { storeToRefs, } from "pinia";
+import { useRouter } from "vue-router";
 
 //conteúdo de botões padrão
 import NavigateContainer from "@renderer/constants/NavigateContainer";
 import Player from "../Player.vue";
 
+const router = useRouter();
 const store = useRouteNavigate();
 const storeLanguages = useLanguageStore();
+
 const { selectedRouter, closeMenu, toggleMenu, initialRouter } = storeToRefs(store);
 const { language } = storeToRefs(storeLanguages);
 // const { modal } = storeToRefs(storeModal);
@@ -47,6 +50,11 @@ async function playVideo(data:string, name:string):Promise<void>{
 function closeVideo(){
     video.value = '';
     flagVideo.value = false;
+}
+
+function redirectPage(path:string | {name:string, params?:{[key:string]:string}}):void{
+    router.push(path);
+    store.toggleMenuAction();
 }
 </script>
 <template>
@@ -96,6 +104,18 @@ function closeVideo(){
                         :toggle="toggleMenu"
                         :color="route.color"
                         @click="playVideo(route.video, initialRouter.name)"
+                    >
+                        <div>{{ route.pathname }}</div>
+                        <small v-if="route.subText !== undefined" v-html="route.subText"></small>
+                    </MiddleCard>
+                </template>
+                <template v-else-if="route.path !== undefined">
+                    <MiddleCard
+                        class="cursor-pointer"
+                        :timer="((index+2)*100)"
+                        :toggle="toggleMenu"
+                        :color="route.color"
+                        @click="redirectPage(route.path)"
                     >
                         <div>{{ route.pathname }}</div>
                         <small v-if="route.subText !== undefined" v-html="route.subText"></small>

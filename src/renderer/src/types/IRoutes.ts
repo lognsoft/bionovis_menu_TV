@@ -1,9 +1,9 @@
 import ISubRoute from "@renderer/types/ISubRoute";
 
 export default interface IRoute{
-    path?:string;
+    path?:string | {name:string, params:{[key:string]:string}};
     subPathName?:string;
-    subText?:string;
+    subText?:string
     pathname:string;
     color:string;
     subRoutes?:ReadonlyArray<ISubRoute>

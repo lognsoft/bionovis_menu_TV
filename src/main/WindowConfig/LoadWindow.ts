@@ -40,6 +40,11 @@ function createWindow() {
     is.dev ? mainWindow.loadURL(loadUrl) : mainWindow.loadFile(loadUrl);
 
     ipcMain.on("close-app", app.quit);
+    ipcMain.on("open-file", (event, path) => {
+        shell.openPath(path).catch(err => {
+            console.error('Failed to open file:', err);
+        });
+    })
 }
 
 export function LoadWindow() {

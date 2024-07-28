@@ -29,11 +29,11 @@ const route = createRouter({
                     props:true
                 },
                 {
-                    path:"/arquivos/:files",
-                    name:"arquivos",
+                    path:"/files/:files",
+                    name:"files",
                     component:() => import("@renderer/page/controls/Files.vue"),
+                    props: true
                 }
-                
             ]
         },
         {

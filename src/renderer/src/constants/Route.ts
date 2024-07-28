@@ -158,116 +158,7 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         color:"#008dcf",
         timer:300,
         video:"processo_produtivo.mp4",
-        routes:[
-        //     {
-        //         pathname:"Vídeo Completo",
-        //         color: "#006c9d",
-        //         video:"nameVideo",
-        //     },
-        //     {
-        //     pathname:"Inóculo",
-        //     color: "#005278",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/cams/streams-inoculo",
-        //             pathname:"Câmeras ao Vivo",
-        //             color:"#003851"
-        //         },
-        //         {
-        //             path:"/videos/videos-inoculo",
-        //             pathname:"Gravação das Câmeras",
-        //             color:"#5f6d16"
-        //         },
-        //     ]
-        // },
-        // {
-        //     pathname:"Upstream",
-        //     color: "#003851",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/cams/streams-upstreams",
-        //             pathname:"Câmeras ao Vivo",
-        //             color:"#5f6d16"
-        //         },
-        //         {
-        //             path:"/videos/videos-upstreams",
-        //             pathname:"Gravação das Câmeras",
-        //             color:"#a3b73a"
-        //         },
-        //     ]
-        // },
-        // {
-        //     pathname:"Downstream",
-        //     color: "#5f6d16",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/cams/streams-downstreams",
-        //             pathname:"Câmeras ao Vivo",
-        //             color:"#a3b73a"
-        //         },
-        //         {
-        //             path:"/videos/videos-downstreams",
-        //             pathname:"Gravação das Câmeras",
-        //             color:"#bbd627"
-        //         },
-        //     ]
-        // },
-        // {
-        //     pathname:"Fill and Finish",
-        //     subText:"(Formulação e Envase)",
-        //     color: "#a3b73a",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/cams/streams-fill-and-finish",
-        //             pathname:"Câmeras ao Vivo",
-        //             color:"#bbd627"
-        //         },
-        //         {
-        //             path:"/videos/videos-fill-and-finish",
-        //             pathname:"Gravação das Câmeras",
-        //             color:"#79adab"
-        //         },
-        //     ]
-        // },
-        // {
-        //     pathname:"Embalagem Secundária",
-        //     color: "#bbd627",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/cams/streams-embalagem-secundaria",
-        //             pathname:"Câmeras ao Vivo",
-        //             color:"#79adab"
-        //         },
-        //         {
-        //             path:"/videos/videos-embalagem-secundaria",
-        //             pathname:"Gravação das Câmeras",
-        //             color:"#27747c"
-        //         },
-        //     ]
-        // },
-        // {
-        //     pathname:"Logística",
-        //     color: "#79adab",
-        //     video:"",
-        //     subRoutes:[
-        //         {
-        //             path:"/cams/streams-logistica",
-        //             pathname:"Câmeras ao Vivo",
-        //             color:"#27747c"
-        //         },
-        //         {
-        //             path:"/videos/videos-logistica",
-        //             pathname:"Gravação das Câmeras",
-        //             color:"#1d4e53"
-        //         },
-        //     ]
-        //  }
-        ]
+        routes:[]
     },
     {
         name: "Vídeo Institucional",
@@ -296,7 +187,18 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
         timer:300,
         video:"",
         routes:[
-            
+            {
+                pathname: "Imagens",
+                color: "#003851",
+                video:"",
+                path: "/files/images"
+            },
+            {
+                pathname: "documentos",
+                color: "rgb(95, 109, 22)",
+                video:"",
+                path: "/files/docs"
+            }
         ]
     }
 ];
@@ -368,12 +270,12 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-area-passagem",
-                        pathname:"Câmeras ao Vivo",
+                        pathname:"Live Cameras",
                         color: "#5f6d16"
                     },
                     {
                         path:"/videos/videos-Passage_Area",
-                        pathname:"Gravação das Câmeras",
+                        pathname:"Camera Recording",
                         color: "#a3b73a"
                     },
                 ]
@@ -437,12 +339,12 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                 subRoutes:[
                     {
                         path:"/cams/streams-qualidade",
-                        pathname:"Câmeras ao Vivo",
+                        pathname:"Live Cameras",
                         color: "#79adab"
                     },
                     {
                         path:"/videos/videos-Quality",
-                        pathname:"Gravação das Câmeras",
+                        pathname:"Camera Recording",
                         color: "#27747c"
                     },
                 ]
