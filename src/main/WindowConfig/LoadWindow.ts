@@ -17,7 +17,7 @@ const windowConfig = {
     webPreferences: {
         preload: path.join(__dirname, '../preload/index.js'),
         sandbox: false,
-        contextIsolation: false
+        contextIsolation: false,
     }
 };
 
@@ -39,6 +39,7 @@ function createWindow() {
     const loadUrl = process.env['ELECTRON_RENDERER_URL'] || path.join(__dirname, '../renderer/index.html');
     is.dev ? mainWindow.loadURL(loadUrl) : mainWindow.loadFile(loadUrl);
 
+    //functions invoke
     ipcMain.on("close-app", app.quit);
     ipcMain.on("open-file", (event, path) => {
         shell.openPath(path).catch(err => {

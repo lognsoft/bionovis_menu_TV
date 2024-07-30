@@ -489,6 +489,18 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
         timer:300,
         video:"",
         routes:[
+            {
+                pathname: "Images",
+                color: "#003851",
+                video:"",
+                path: "/files/images"
+            },
+            {
+                pathname: "documents",
+                color: "rgb(95, 109, 22)",
+                video:"",
+                path: "/files/docs"
+            }
         ]
     }
 ];

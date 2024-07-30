@@ -46,7 +46,6 @@ async function renderImage(ImageName:string):Promise<string>{
     image = image[image.length - 1];
 
     const data = await fetch(`http://localhost:3000/openImage?ImageName=${image}&optionMenu=${menuOption.value}&DirName=${pasta.value}`);
-    console.log(data.url);
 
     return data.url;
 }
