@@ -134,8 +134,8 @@ onBeforeUnmount(() => {
                 <h1 class="title w-full">
                     {{ language === 'default' ? "Arquivos" : "Files" }}
                 </h1>
-                <div class="grid grid-cols-4 gap-4 mt-[6cm]" >
-                    <div v-for="file,index in filtered" :key="index" class="file_card" @click="openFile(file.file, file)">
+                <div class="grid grid-cols-4 gap-4 mt-[6cm]">
+                    <div v-for="file,index in filtered" :key="index" class="file_card" :style="`--timer:${(5+index+1)+'00ms'}`" @click="openFile(file.file, file)">
                         <Word v-if="file.type === 'docx'" class="icon"/>
                         <PDF v-else-if="file.type === 'pdf'" class="icon"/>
                         <PowerPoint v-else-if="file.type === 'pptx'" class="icon"/>
@@ -201,7 +201,19 @@ onBeforeUnmount(() => {
         bg-[#3090b9]
         hover:bg-[#005277]
         text-white
-        cursor-pointer
+        cursor-pointer;
+        animation: fade var(--timer);
+    }
+
+    @keyframes fade {
+        from {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0px);
+            opacity: 1;
+        }
     }
 
     .icon{
