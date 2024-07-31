@@ -202,7 +202,7 @@ onBeforeUnmount(() => {
         hover:bg-[#005277]
         text-white
         cursor-pointer;
-        animation: fade var(--timer);
+        animation: fade var(--timer) ;
     }
 
     @keyframes fade {
