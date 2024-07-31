@@ -2,6 +2,7 @@
 import { onMounted, onBeforeUnmount, ref, Ref, watch } from "vue";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import { storeToRefs } from "pinia";
+import Player from "@renderer/components/Player.vue";
 import CloseBold from "@renderer/components/icons/CloseBold.vue";
 
 //format files
@@ -15,6 +16,7 @@ import SVG from "@renderer/components/icons/type_doc/SVG.vue";
 import WebP from "@renderer/components/icons/type_doc/WebP.vue";
 import PNG from "@renderer/components/icons/type_doc/PNG.vue";
 import JPG from "@renderer/components/icons/type_doc/JPG.vue";
+import Play from "@renderer/components/icons/type_doc/Play.vue";
 
 const props = defineProps<{files:string}>();
 
@@ -27,11 +29,13 @@ interface FormatedType{
 const useLanguage = useLanguageStore();
 const { language } = storeToRefs(useLanguage);
 
-const pdfReaderFlag:Ref<FormatedType | null> = ref(null);
-const imageFlag:Ref<FormatedType | null> = ref(null);
+const fileFlag:Ref<FormatedType | null> = ref(null);
 
 const lang = language.value === "default" ? "PT": "EN";
 const dir = language.value === "default" ? "Apresentações": "Presentations";
+const typesImage:ReadonlyArray<string> = ["png", "jpeg", "jpg", "svg", "gif", "bmp", "webp"];
+const typesText:ReadonlyArray<string> = ["xlsx", "docx", "pdf", "pptx"];
+const typesVideo:ReadonlyArray<string> = ["mp4", "ogg", "webm"];
 
 const formatedFiles:Ref<ReadonlyArray<FormatedType>> = ref([]);
 const filtered:Ref<ReadonlyArray<FormatedType>> = ref([]);
@@ -62,10 +66,6 @@ const constructObjects: (files:ReadonlyArray<string>) => void = (files:ReadonlyA
 
 const filterFiles: () => void = ():void => {
     const type:string = props.files;
-    const typesImage:ReadonlyArray<string> = ["png", "jpeg", "jpg", "svg", "gif", "bmp", "webp"];
-    const typesText:ReadonlyArray<string> = ["xlsx", "docx", "pdf", "pptx"];
-    const typesVideo:ReadonlyArray<string> = ["mp4", "ogg", "webm"];
-
     const filteredFiles:ReadonlyArray<FormatedType> = formatedFiles.value.filter(file => {
         const extension:string = file.type;
         if(type === "images" && typesImage.includes(extension)) return file
@@ -83,11 +83,8 @@ function openFile(file:string, objFile:FormatedType):void{
     if(props.files === "docs" && objFile.type !== "pdf"){
         window.electron.ipcRenderer.send("open-file", file);
         return;
-    } else if (props.files === "docs" && objFile.type === "pdf") {
-        pdfReaderFlag.value = objFile;
-        return;
     } else {
-        imageFlag.value = objFile;
+        fileFlag.value = objFile;
         return;
     }
 }
@@ -97,8 +94,7 @@ watch(() => props.files, () => {
 })
 
 function closeModal():void{
-    pdfReaderFlag.value = null;
-    imageFlag.value = null;
+    fileFlag.value = null;
 }
 
 let interval:null | ReturnType<typeof setInterval> = null;
@@ -117,17 +113,23 @@ onBeforeUnmount(() => {
     <main>
         <section class="py-[100px]">
             <div class="container mx-auto px-3">
-                <div v-if="pdfReaderFlag !== null" class="pdf_reader">
-                    <object :data="`file://${pdfReaderFlag.file}`" type="application/pdf"></object>
+                <div v-if="fileFlag !== null && fileFlag.type === 'pdf'" class="pdf_reader">
+                    <object :data="`file://${fileFlag.file}`" type="application/pdf"></object>
                     <span class="close_view" @click="closeModal">
                         <CloseBold/>
                     </span>
                 </div>
-                <div v-if="imageFlag !== null" class="img_view">
-                    <img :src="`http://localhost:3000/openImage?ImageName=${imageFlag.fileName}&optionMenu=${lang}&DirName=${dir}`" alt=""/>
+                <div v-if="fileFlag !== null && typesImage.includes(fileFlag.type)" class="img_view">
+                    <img :src="`http://localhost:3000/openImage?ImageName=${fileFlag.fileName}&optionMenu=${lang}&DirName=${dir}`" alt=""/>
                     <span class="close_view" @click="closeModal">
                         <CloseBold/>
                     </span>
+                </div>
+                <div v-if="fileFlag !== null && typesVideo.includes(fileFlag.type)" class="video_view">
+                    <Player
+                        :video="`http://localhost:3000/startRecord?VideoName=${fileFlag.fileName}&optionMenu=${lang}&DirName=${dir}`"
+                        :on-custom-event="closeModal"
+                    />
                 </div>
                 <h1 class="title w-full">
                     {{ language === 'default' ? "Arquivos" : "Files" }}
@@ -144,6 +146,7 @@ onBeforeUnmount(() => {
                         <WebP v-else-if="file.type === 'webp'" class="icon"/>
                         <PNG v-else-if="file.type === 'png'" class="icon"/>
                         <JPG v-else-if="file.type === 'jpg' || file.type === 'jpeg'" class="icon"/>
+                        <Play v-else-if="file.type === 'mp4' || file.type === 'ogg' || file.type === 'webm'" class="icon"/>
 
                         <h2 class="file_name">{{ file.fileName }}</h2>
                     </div>
@@ -155,7 +158,8 @@ onBeforeUnmount(() => {
 
 <style scoped>
     .img_view,
-    .pdf_reader{
+    .pdf_reader,
+    .video_view{
         @apply
         absolute
         w-full
@@ -172,6 +176,7 @@ onBeforeUnmount(() => {
         h-[400px]
     }
 
+    .video_view,
     .img_view{
         @apply
         bg-black/50
@@ -191,7 +196,7 @@ onBeforeUnmount(() => {
         flex
         items-center
         justify-center
-        aspect-square
+        aspect-video
         relative
         bg-[#3090b9]
         hover:bg-[#005277]
@@ -201,8 +206,8 @@ onBeforeUnmount(() => {
 
     .icon{
         @apply
-        w-[100px]
-        h-[100px]
+        w-[120px]
+        h-[120px]
     }
 
     .file_name{
@@ -217,19 +222,11 @@ onBeforeUnmount(() => {
     }
 
     .close_view{
-        @apply
-        absolute
-        right-5
+        @apply absolute right-[26px] text-4xl cursor-pointer rounded-full p-[4px]
         bottom-[200px]
         bg-red-500
         text-white
-        w-[45px]
-        h-[45px]
-        text-[30px]
-        flex
-        items-center
         justify-center
-        rounded-full
-        cursor-pointer
+        
     }
 </style>
