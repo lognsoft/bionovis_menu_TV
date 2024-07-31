@@ -235,7 +235,7 @@ onBeforeUnmount(() => {
 
     .close_view{
         @apply absolute right-[26px] text-4xl cursor-pointer rounded-full p-[4px]
-        bottom-[200px]
+        bottom-[90px]
         bg-red-500
         text-white
         justify-center
