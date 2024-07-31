@@ -66,12 +66,12 @@ app.get('/openImage', async (req, res) => {
 // Rota para servir imagem individualmente
 app.get('/openDocument', async (req, res) => {
     const directoryPath = await getRootDirectoryFisicalPath();
-    const { ImageName, optionMenu, DirName } = req.query;
+    const { DocName, optionMenu, DirName } = req.query;
     
-    const DocPath = path.join(directoryPath, optionMenu, DirName, ImageName);
+    const DocPath = path.join(directoryPath, optionMenu, DirName, DocName);
 
     if (fs.existsSync(DocPath)) {
-        console.log("Documento não encontrado");
+        console.log("Documento encontrado");
         res.sendFile(DocPath);
     } else {
         res.status(404).send('Documento não encontrado');

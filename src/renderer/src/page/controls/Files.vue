@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
         <section class="py-[100px]">
             <div class="container mx-auto px-3">
                 <div v-if="fileFlag !== null && fileFlag.type === 'pdf'" class="pdf_reader">
-                    <object :data="`file://${fileFlag.file}`" type="application/pdf"></object>
+                    <iframe :src="`http://localhost:3000/openDocument?DocName=${fileFlag.fileName}&optionMenu=${lang}&DirName=${dir}`"></iframe>
                     <span class="close_view" @click="closeModal">
                         <CloseBold/>
                     </span>
@@ -170,10 +170,10 @@ onBeforeUnmount(() => {
         z-index: 1000;
     }
 
-    .pdf_reader > object{
+    .pdf_reader > iframe{
         @apply
         w-full
-        h-[400px]
+        h-screen
     }
 
     .video_view,
