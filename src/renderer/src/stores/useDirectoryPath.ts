@@ -21,8 +21,11 @@ const directoryPath = defineStore('directory', ():State => {
                 throw 'okay';
             };
             const response:{ path:string } = await data.json();
-            if(typeof response.path == 'string'){
+            console.log(response)
+            if(typeof response.path == 'string' && response.path !== ""){
                 path.value = response.path;
+            } else {
+                throw new Error();
             }
 
         } catch (error) {

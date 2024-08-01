@@ -35,6 +35,7 @@ const handlerModal:() => void = ():void => {
 
 onMounted(() => {
     languages.getKeyLanguage();
+    directory.verifyDirectoryExist();
 })
 
 function closeApp(){

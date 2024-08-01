@@ -8,6 +8,9 @@ import useAudioStore from '@renderer/stores/useAudioStore';
 import useLanguageStore from '@renderer/stores/useLanguageStore';
 import { storeToRefs } from 'pinia';
 
+import videoLoadingDefault from "@renderer/assets/videos/loading.mp4";
+import videoLoadingEnglish from "@renderer/assets/videos/loading_english.mp4"
+
 
 
 const { play } = useAudioStore();
@@ -15,6 +18,8 @@ const store = useCamStore();
 const languages = useLanguageStore();
 const { paramCam } = storeToRefs(store);
 const { language } = storeToRefs(languages);
+const video = language.value === "default" ? videoLoadingDefault : videoLoadingEnglish;
+
 interface CanvasHTML extends HTMLElement{
     player
 }
@@ -88,7 +93,7 @@ const closeCam:CloseCam = {
         </button>
         
         <div v-show="isLoading" class="cam-loading">
-            <video src="../assets/videos/loading.mp4" autoplay></video>
+            <video :src="video" autoplay></video>
         </div>
         <canvas v-show="!isLoading" class="cam-player" ref="canvas"></canvas>
     </div>
