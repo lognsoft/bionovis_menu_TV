@@ -1,6 +1,6 @@
 # Deploy
 
-## Comandos para Deploy
+## Comandos para Build
 
 Antes de efetuar o build, verifique se não existe a pasta **OUT** e a pasta **Packages**. Caso existam, apague as duas. A seguir, execute os comandos abaixo:
 
