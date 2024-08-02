@@ -2,6 +2,10 @@
 
 Este projeto é um projeto desktop, o funcionamento é 100% local.
 
+## Como instalar e inicializar.
+
+[Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_INSTALL.md)
+
 ## Funcionalidades.
 
 ### Cameras ao vivo.
