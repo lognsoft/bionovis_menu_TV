@@ -8,11 +8,12 @@
 ### Geração do Instalador
 
 1. **Passos para gerar o instalador**
+   - Faça o deploy do projeto.
    - Navegue até a raiz do projeto onde o arquivo `innoInstaller` está localizado.
    - Abra o Inno Setup Compiler.
    - Carregue o arquivo de script `innoInstaller` no Inno Setup.
 
-2. **Adicionar a variável de ambiente**
+3. **Adicionar a variável de ambiente**
    - É crucial adicionar a seguinte linha ao arquivo de script do Inno Setup para que a variável de ambiente `Bionovis` seja configurada corretamente:
    ```ini
    [Registry]
