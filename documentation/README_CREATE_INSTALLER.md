@@ -8,7 +8,7 @@
 ### Geração do Instalador
 
 1. **Passos para gerar o instalador**
-   - Faça o deploy do projeto.
+   - Faça o deploy do projeto. [Como efetuar o deploy](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_DEPLOY.md)
    - Navegue até a raiz do projeto onde o arquivo `innoInstaller` está localizado.
    - Abra o Inno Setup Compiler.
    - Carregue o arquivo de script `innoInstaller` no Inno Setup.
