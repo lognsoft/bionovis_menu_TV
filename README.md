@@ -21,7 +21,7 @@ Existem sessões onde são reproduzidos vídeos, como gravações de câmeras ou
 ### Integração com SharePoint/OneDrive
 O menu tem a capacidade de ler arquivos de diretórios; ou seja, é possível se conectar ao SharePoint/OneDrive, caso o SharePoint/OneDrive esteja sincronizado na máquina.
 
-[Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_SUPPORTED_FORMATS.md)
+[Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_SHAREPOINT_ONEDRIVE.md)
 
 ---
 
