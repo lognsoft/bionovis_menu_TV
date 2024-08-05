@@ -5,7 +5,7 @@ html{
   font-family: 'Codec Code', sans-serif !important;
 }
 body{
-  @apply bg-[url('./images/bg.png')] bg-center bg-cover bg-no-repeat bg-fixed;
+  @apply bg-center bg-cover bg-no-repeat bg-fixed;
 }
 main{
   @apply min-h-screen;
