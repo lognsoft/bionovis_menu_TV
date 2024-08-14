@@ -6,7 +6,7 @@ import sound from "@renderer/assets/audios/sound.mp3";
 import soundStart from "@renderer/assets/audios/sound2.mp3";
 import directoryPath from "@renderer/stores/useDirectoryPath";
 import useLanguageStore from "./stores/useLanguageStore";
-import bg_default from "@renderer/assets/images/bg.png";
+import bg_default from "@renderer/assets/images/bg_pt.png";
 import bg_english from "@renderer/assets/images/bg_en.png";
 
 const lang = useLanguageStore();
