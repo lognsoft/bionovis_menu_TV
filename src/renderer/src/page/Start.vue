@@ -5,7 +5,7 @@ import useModalStore from "@renderer/stores/useModalStore";
 import useAudioStore from "@renderer/stores/useAudioStore";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import directoryPath from "@renderer/stores/useDirectoryPath";
-import Back from "@renderer/components/icons/Back.vue";
+// import Back from "@renderer/components/icons/Back.vue";
 import Gear from "@renderer/components/icons/Gear.vue";
 import Modal from "@renderer/components/Modal.vue";
 import Config from "@renderer/components/Config.vue";
@@ -38,10 +38,10 @@ onMounted(() => {
     directory.verifyDirectoryExist();
 })
 
-function closeApp(){
-    play();
-    modal.value = true;
-}
+// function closeApp(){
+//     play();
+//     modal.value = true;
+// }
 </script>
 
 <template>
@@ -82,7 +82,7 @@ function closeApp(){
             </div>
         </div>
         <div class="button-close">
-            <MenuButton :text-button="PageStart[language].close" @click="closeApp" :toggle="true" :timer="200" color="#3090b9"><Back/></MenuButton>
+            <!-- <MenuButton :text-button="PageStart[language].close" @click="closeApp" :toggle="true" :timer="200" color="#3090b9"><Back/></MenuButton> -->
             <MenuButton :text-button="PageStart[language].config" @click="handlerModal" :toggle="true" :timer="400" color="#3090b9"><Gear/></MenuButton>
         </div>
     </main>

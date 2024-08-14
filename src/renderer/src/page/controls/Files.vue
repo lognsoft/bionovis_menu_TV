@@ -44,6 +44,7 @@ const filtered:Ref<ReadonlyArray<FormatedType>> = ref([]);
 const getFiles: () => Promise<void> = async ():Promise<void> => {
     const request = await fetch(`http://localhost:3000/presentations?optionMenu=${lang}/${dir}`);
     const data:ReadonlyArray<string> = await request.json();
+        console.log(data);
     
     constructObjects(data);
 }
@@ -57,7 +58,7 @@ const constructObjects: (files:ReadonlyArray<string>) => void = (files:ReadonlyA
         return {
             file,
             fileName,
-            type
+            type: type.toLowerCase()
         };
     })
     formatedFiles.value = objs;
