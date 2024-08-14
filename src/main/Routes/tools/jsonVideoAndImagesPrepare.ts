@@ -6,7 +6,7 @@
 function CameraRecordjsonVideoAndImagesJsonPrepare(files, directoryFisicalPath) {
 
     const videoExtensions = ['.mp4', '.webm', '.ogg'];  // Extensões comuns de vídeo
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp'];  // Extensões comuns de imagem
+    const imageExtensions = ['.jpg', '.jpeg', '.JPEG', '.png', '.gif', '.bmp', '.svg', '.webp'];  // Extensões comuns de arquivos
 
     const videos:Array<string> = files.filter(file => videoExtensions.some(ext => file.endsWith(ext)));
     const images:Array<string> = files.filter(file => imageExtensions.some(ext => file.endsWith(ext)));
@@ -31,7 +31,7 @@ function CameraRecordjsonVideoAndImagesJsonPrepare(files, directoryFisicalPath) 
 
 function ApresentationJsonVideoAndImagesJsonPrepare(files: string[], directoryFisicalPath: string): string[] {
     const videoExtensions = ['.mp4', '.webm', '.ogg']; // Extensões comuns de vídeo
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.webp', '.pdf','.pptx', '.docx', '.xlsx']; // Extensões comuns de imagem
+    const imageExtensions = ['.jpg', '.jpeg', '.JPEG', '.png', '.gif', '.bmp', '.svg', '.webp', '.pdf','.pptx', '.docx', '.xlsx']; // Extensões comuns de arquivos
 
     const videos:Array<string> = files.filter(file => videoExtensions.some(ext => file.endsWith(ext)));
     const images:Array<string> = files.filter(file => imageExtensions.some(ext => file.endsWith(ext)));
