@@ -2,7 +2,7 @@
 
 ### Apresentações
 - **Imagens**: `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.svg`, `.webp`
-- **Documentos**: `.pdf`
+- **Documentos**: `.pdf`, `.pptx`, `.docx`, `.xlsx`
 - **Vídeos**: `.mp4`, `.webm`, `.ogg`
 
 ### Câmeras Gravadas
