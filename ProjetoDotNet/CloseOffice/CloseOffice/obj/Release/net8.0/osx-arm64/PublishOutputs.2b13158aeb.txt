@@ -1,0 +1,5 @@
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\publish\osx-arm64\CloseOffice
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\publish\osx-arm64\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\publish\osx-arm64\CloseOffice.deps.json
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\publish\osx-arm64\CloseOffice.runtimeconfig.json
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\publish\osx-arm64\CloseOffice.pdb

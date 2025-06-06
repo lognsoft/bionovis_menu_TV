@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "c1bc7P219AQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Bruno\\Desktop\\haha\\ProjetoDotNet\\CloseOffice\\CloseOffice\\CloseOffice.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.5\\microsoft.netcore.app.runtime.win-x64.8.0.5.nupkg.sha512",
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.5\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.5.nupkg.sha512",
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.5\\microsoft.aspnetcore.app.runtime.win-x64.8.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

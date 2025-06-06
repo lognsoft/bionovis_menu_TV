@@ -1,0 +1,14 @@
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\osx-arm64\CloseOffice
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\osx-arm64\CloseOffice.deps.json
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\osx-arm64\CloseOffice.runtimeconfig.json
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\osx-arm64\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\osx-arm64\CloseOffice.pdb
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.AssemblyInfoInputs.cache
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.AssemblyInfo.cs
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\refint\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.pdb
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\CloseOffice.genruntimeconfig.cache
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\osx-arm64\ref\CloseOffice.dll

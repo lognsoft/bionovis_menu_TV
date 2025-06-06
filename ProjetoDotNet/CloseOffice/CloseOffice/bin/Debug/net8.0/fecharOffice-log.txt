@@ -1,0 +1,12 @@
+========== Iniciando em 06/06/2025 16:26:02 ==========
+Procurando por processo "WINWORD": 1 instância(s) encontrada(s).
+  → Tentando fechar WINWORD (PID 20228)
+    • WINWORD (PID 20228) finalizado.
+Procurando por processo "EXCEL": 0 instância(s) encontrada(s).
+Procurando por processo "POWERPNT": 0 instância(s) encontrada(s).
+Procurando por processo "OUTLOOK": 0 instância(s) encontrada(s).
+Procurando por processo "MSPUB": 0 instância(s) encontrada(s).
+Procurando por processo "ONEPOWER": 0 instância(s) encontrada(s).
+Operação concluída. Todos os aplicativos Office abertos foram fechados.
+========== Finalizado em 06/06/2025 16:26:05 ==========
+

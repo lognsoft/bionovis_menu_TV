@@ -1,0 +1,14 @@
+{
+  "name": "node-close-office",
+  "version": "1.0.0",
+  "description": "Botão para fechar o Office via CloseOffice.exe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Bruno",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

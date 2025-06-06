@@ -1,0 +1,14 @@
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\CloseOffice.exe
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\CloseOffice.deps.json
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\CloseOffice.runtimeconfig.json
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\bin\Release\net8.0\CloseOffice.pdb
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.AssemblyInfoInputs.cache
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.AssemblyInfo.cs
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.csproj.CoreCompileInputs.cache
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\refint\CloseOffice.dll
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.pdb
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\CloseOffice.genruntimeconfig.cache
+C:\Users\Bruno\Desktop\haha\ProjetoDotNet\CloseOffice\CloseOffice\obj\Release\net8.0\ref\CloseOffice.dll

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sem titulo</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Segoe UI, Arial, sans-serif;
+      background-color: #f2f2f2;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #btnFecharOffice {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      background-color: #0078d7;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: background-color 0.2s ease-in-out;
+    }
+    #btnFecharOffice:hover {
+      background-color: #005fa1;
+    }
+    #status {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #333333;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+    #log {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #555555;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: #ffffff;
+      padding: 8px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button id="btnFecharOffice">Fechar office</button>
+    <div id="status"></div>
+    <pre id="log"></pre>
+  </div>
+
+  <script>
+    document.getElementById("btnFecharOffice").addEventListener("click", async () => {
+      document.getElementById("status").innerText = "enviando dados para o sv";
+      document.getElementById("log").innerText = "";
+
+      try {
+        const response = await fetch("/fechar-office");
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          document.getElementById("status").innerText = "office finalizado com sucesso!";
+          document.getElementById("log").innerText = data.message;
+        } else {
+          document.getElementById("status").innerText = "falha ao fechar o office";
+          document.getElementById("log").innerText = JSON.stringify(data, null, 2);
+        }
+      } catch (err) {
+        document.getElementById("status").innerText = "errom na req";
+        document.getElementById("log").innerText = err.toString();
+      }
+    });
+  </script>
+</body>
+</html>
