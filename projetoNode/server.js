@@ -1,4 +1,4 @@
-// projetoNode/server.js
+
 const express = require('express');
 const path = require('path');
 const { spawn } = require('child_process');
@@ -6,10 +6,8 @@ const { spawn } = require('child_process');
 const app = express();
 const PORT = 3000;
 
-// Serve arquivos estáticos (public/index.html, CSS, JS, etc)
 app.use(express.static(path.join(__dirname, 'public')));
 
-// POST /fechar-office
 app.post('/fechar-office', (req, res) => {
   const exePath = path.join(__dirname, 'exe', 'CloseOffice.exe');
   const processo = spawn(exePath, [], { windowsHide: true });
@@ -43,14 +41,10 @@ app.post('/fechar-office', (req, res) => {
   });
 });
 
-// POST /abrir-ppt
 app.post('/abrir-ppt', (req, res) => {
-  // Ajuste o caminho se necessário, aqui assumimos:
-  // projetoNode      <- __dirname
-  // └─ ../documentos/Apresentação1.pptx
+
   const pptPath = path.join(__dirname, '..', 'documentos', 'Apresentação1.pptx');
 
-  // No Windows, 'cmd /c start "" <arquivo>' abre o .pptx com o app padrão
   const processo = spawn('cmd', ['/c', 'start', '""', pptPath], { windowsHide: true });
 
   let stderrData = '';
