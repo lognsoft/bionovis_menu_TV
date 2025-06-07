@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Sem titulo</title>
+  <title>Controle Office</title>
   <style>
     body {
       margin: 0;
@@ -14,7 +14,7 @@
       align-items: center;
       justify-content: center;
     }
-    #btnFecharOffice {
+    .btn-primary {
       padding: 12px 24px;
       font-size: 16px;
       font-weight: 600;
@@ -26,57 +26,129 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       transition: background-color 0.2s ease-in-out;
     }
-    #btnFecharOffice:hover {
+    .btn-primary:hover {
       background-color: #005fa1;
     }
-    #status {
-      margin-top: 16px;
-      font-size: 14px;
-      color: #333333;
-      text-align: center;
-      white-space: pre-wrap;
+
+    /* Modal */
+    #modalOverlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
     }
-    #log {
-      margin-top: 12px;
+    #modal {
+      background: #fff;
+      padding: 24px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      text-align: center;
+      min-width: 320px;
+    }
+    #modal h2 {
+      margin-top: 0;
+      font-size: 20px;
+      color: #333;
+    }
+    #modalStatus {
+      margin: 16px 0 8px;
+      font-size: 14px;
+      color: #333;
+    }
+    #modalLog {
       font-size: 12px;
-      color: #555555;
-      max-height: 200px;
+      color: #555;
+      max-height: 120px;
       overflow-y: auto;
-      background-color: #ffffff;
+      background: #f9f9f9;
       padding: 8px;
-      border: 1px solid #cccccc;
+      border: 1px solid #ddd;
       border-radius: 4px;
-      width: 400px;
+      text-align: left;
+    }
+    #btnFecharOfficeModal {
+      margin-top: 16px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #d70022;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    #btnFecharOfficeModal:hover {
+      background-color: #a1001b;
     }
   </style>
 </head>
 <body>
-  <div>
-    <button id="btnFecharOffice">Fechar office</button>
-    <div id="status"></div>
-    <pre id="log"></pre>
+
+  <!-- Apenas este botão no load inicial -->
+  <button id="btnAbrirPPT" class="btn-primary">Abrir PowerPoint</button>
+
+  <!-- Modal -->
+  <div id="modalOverlay">
+    <div id="modal">
+      <h2>PowerPoint iniciado!</h2>
+
+      <div id="modalStatus">Aguardando ação...</div>
+      <pre id="modalLog"></pre>
+
+      <button id="btnFecharOfficeModal">Fechar Office</button>
+    </div>
   </div>
 
   <script>
-    document.getElementById("btnFecharOffice").addEventListener("click", async () => {
-      document.getElementById("status").innerText = "enviando dados para o sv";
-      document.getElementById("log").innerText = "";
+    const btnAbrir = document.getElementById('btnAbrirPPT');
+    const overlay = document.getElementById('modalOverlay');
+    const modalStatus = document.getElementById('modalStatus');
+    const modalLog    = document.getElementById('modalLog');
+    const btnFecharModal = document.getElementById('btnFecharOfficeModal');
 
-      try {
-        const response = await fetch("/fechar-office");
-        const data = await response.json();
+    // Função genérica de fetch + JSON
+    async function postJson(endpoint) {
+      const resp = await fetch(endpoint, { method: 'POST' });
+      const data = await resp.json();
+      return { ok: resp.ok, data };
+    }
 
-        if (response.ok && data.success) {
-          document.getElementById("status").innerText = "office finalizado com sucesso!";
-          document.getElementById("log").innerText = data.message;
-        } else {
-          document.getElementById("status").innerText = "falha ao fechar o office";
-          document.getElementById("log").innerText = JSON.stringify(data, null, 2);
-        }
-      } catch (err) {
-        document.getElementById("status").innerText = "errom na req";
-        document.getElementById("log").innerText = err.toString();
+    // Ao clicar Abrir PowerPoint
+    btnAbrir.addEventListener('click', async () => {
+      // Abre o PPT
+      const { ok, data } = await postJson('/abrir-ppt');
+      if (ok && data.success) {
+        // Mostra o modal só se abriu corretamente
+        overlay.style.display = 'flex';
+        modalStatus.innerText = 'Clique em "Fechar Office" para encerrar o PowerPoint.';
+        modalLog.innerText = '';
+      } else {
+        alert('Falha ao abrir PowerPoint:\n' + JSON.stringify(data, null,2));
       }
+    });
+
+    // Ao clicar Fechar Office dentro do modal
+    btnFecharModal.addEventListener('click', async () => {
+      modalStatus.innerText = 'Fechando Office...';
+      modalLog.innerText = '';
+
+      const { ok, data } = await postJson('/fechar-office');
+      if (ok && data.success) {
+        modalStatus.innerText = 'Office fechado com sucesso!';
+        modalLog.innerText = data.message;
+      } else {
+        modalStatus.innerText = 'Falha ao fechar Office.';
+        modalLog.innerText = ok
+          ? JSON.stringify(data, null,2)
+          : 'Erro de rede.';
+      }
+
+      // Depois de 2s fecha o próprio modal
+      setTimeout(() => overlay.style.display = 'none', 2000);
     });
   </script>
 </body>
