@@ -30,7 +30,7 @@
       background-color: #005fa1;
     }
 
-    /* Modal */
+
     #modalOverlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -88,10 +88,10 @@
 </head>
 <body>
 
-  <!-- Apenas este botão no load inicial -->
+
   <button id="btnAbrirPPT" class="btn-primary">Abrir PowerPoint</button>
 
-  <!-- Modal -->
+
   <div id="modalOverlay">
     <div id="modal">
       <h2>PowerPoint iniciado!</h2>
@@ -110,19 +110,18 @@
     const modalLog    = document.getElementById('modalLog');
     const btnFecharModal = document.getElementById('btnFecharOfficeModal');
 
-    // Função genérica de fetch + JSON
+
     async function postJson(endpoint) {
       const resp = await fetch(endpoint, { method: 'POST' });
       const data = await resp.json();
       return { ok: resp.ok, data };
     }
 
-    // Ao clicar Abrir PowerPoint
+
     btnAbrir.addEventListener('click', async () => {
-      // Abre o PPT
+
       const { ok, data } = await postJson('/abrir-ppt');
       if (ok && data.success) {
-        // Mostra o modal só se abriu corretamente
         overlay.style.display = 'flex';
         modalStatus.innerText = 'Clique em "Fechar Office" para encerrar o PowerPoint.';
         modalLog.innerText = '';
@@ -131,7 +130,6 @@
       }
     });
 
-    // Ao clicar Fechar Office dentro do modal
     btnFecharModal.addEventListener('click', async () => {
       modalStatus.innerText = 'Fechando Office...';
       modalLog.innerText = '';
@@ -146,8 +144,6 @@
           ? JSON.stringify(data, null,2)
           : 'Erro de rede.';
       }
-
-      // Depois de 2s fecha o próprio modal
       setTimeout(() => overlay.style.display = 'none', 2000);
     });
   </script>
