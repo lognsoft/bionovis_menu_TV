@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { CameraRecordjsonVideoAndImagesJsonPrepare } from '../Routes/tools/jsonVideoAndImagesPrepare';
 import { getRootDirectoryFisicalPath } from './tools/managerRootDirectorie';
+import { spawn } from 'child_process';
 // import { updateDirectoryFisicalPath } from './tools/managerRootDirectorie';
 // import { CreateDirectories } from './tools/createSubDirectories';
 
@@ -77,6 +78,70 @@ app.get('/openDocument', async (req, res) => {
         res.status(404).send('Documento não encontrado');
     }
 });
+
+app.post('/fechar-office', (_req, res) => {
+  const exePath = path.join(__dirname, '../..', 'assets', 'exe', 'CloseOffice.exe');
+  console.log(exePath)
+  const processo = spawn(exePath, [], { windowsHide: true });
+
+  let stdoutData = '';
+  let stderrData = '';
+
+  processo.stdout.on('data', (data) => {
+    stdoutData += data.toString();
+  });
+
+  processo.stderr.on('data', (data) => {
+    stderrData += data.toString();
+  });
+
+  processo.on('error', (err) => {
+    console.error('Erro ao iniciar o CloseOffice.exe:', err);
+    return res.status(500).json({ success: false, error: err.message });
+  });
+
+  processo.on('close', (code) => {
+    if (code === 0) {
+      res.json({ success: true, message: stdoutData.trim() });
+    } else {
+      res.status(500).json({
+        success: false,
+        message: `CloseOffice.exe finalizou com código ${code}.`,
+        stderr: stderrData.trim()
+      });
+    }
+  });
+});
+
+// app.post('/abrir-ppt', (req, res) => {
+
+//   const pptPath = path.join(__dirname, '..', 'documentos', 'Apresentação1.pptx');
+
+//   const processo = spawn('cmd', ['/c', 'start', '""', pptPath], { windowsHide: true });
+
+//   let stderrData = '';
+
+//   processo.stderr.on('data', (data) => {
+//     stderrData += data.toString();
+//   });
+
+//   processo.on('error', (err) => {
+//     console.error('Erro ao executar start para PowerPoint:', err);
+//     return res.status(500).json({ success: false, error: err.message });
+//   });
+
+//   processo.on('close', (code) => {
+//     if (code === 0) {
+//       res.json({ success: true, message: `PowerPoint aberto com sucesso (exit code ${code})` });
+//     } else {
+//       res.status(500).json({
+//         success: false,
+//         message: `Erro ao abrir PowerPoint (code ${code}).`,
+//         stderr: stderrData.trim()
+//       });
+//     }
+//   });
+// });
 
 
 

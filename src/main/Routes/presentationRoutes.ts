@@ -9,23 +9,22 @@ const app = express.Router();
 // Rota para listar apresentações
 app.get('/presentations', async (req, res) => {
 
-    const rootDirectoryPath = await getRootDirectoryFisicalPath();
-    const directory = req.query.optionMenu; 
-    const pathDir = path.join(rootDirectoryPath, directory);
+  const rootDirectoryPath = await getRootDirectoryFisicalPath()
+  const directory = req.query.optionMenu
+  const pathDir = path.join(rootDirectoryPath, directory)
 
-    console.log(pathDir);
+  console.log(pathDir)
 
+  fs.readdir(pathDir, (err, files) => {
+    if (err) {
+      console.error('Falha em ler o diretório ', err)
+      return res.status(500).send('Erro durante a leitura do vídeo ou imagem.')
+    }
 
-    fs.readdir(pathDir, (err, files) => {
-        if (err) {
-            console.error("Falha em ler o diretório ", err);
-            return res.status(500).send('Erro durante a leitura do vídeo ou imagem.');
-        }
+    const objArray = ApresentationJsonVideoAndImagesJsonPrepare(files, pathDir)
 
-        let objArray = ApresentationJsonVideoAndImagesJsonPrepare(files, pathDir);
-
-        res.json(objArray);
-    });
+    res.json(objArray)
+  })
 });
 
 export default app;

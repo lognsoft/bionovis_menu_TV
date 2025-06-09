@@ -35,16 +35,16 @@ const lang = language.value === "default" ? "PT": "EN";
 const dir = language.value === "default" ? "Apresentações": "Presentations";
 const typesImage:ReadonlyArray<string> = ["png", "jpeg", "jpg", "svg", "gif", "bmp", "webp"];
 const typesText:ReadonlyArray<string> = ["xlsx", "docx", "pdf", "pptx"];
-const typesVideo:ReadonlyArray<string> = ["mp4", "ogg", "webm"];
+const typesVideo:ReadonlyArray<string> = ["mp4", "ogg", "webm"]; 
 
 const formatedFiles:Ref<ReadonlyArray<FormatedType>> = ref([]);
 const filtered:Ref<ReadonlyArray<FormatedType>> = ref([]);
+const modalDoc:Ref<boolean> = ref(false)
 
 
 const getFiles: () => Promise<void> = async ():Promise<void> => {
     const request = await fetch(`http://localhost:3000/presentations?optionMenu=${lang}/${dir}`);
     const data:ReadonlyArray<string> = await request.json();
-        console.log(data);
     
     constructObjects(data);
 }
@@ -83,6 +83,7 @@ const filterFiles: () => void = ():void => {
 function openFile(file:string, objFile:FormatedType):void{
     if(props.files === "docs" && objFile.type !== "pdf"){
         window.electron.ipcRenderer.send("open-file", file);
+        modalDoc.value = true
         return;
     } else {
         fileFlag.value = objFile;
@@ -108,10 +109,28 @@ onMounted(() => {
 onBeforeUnmount(() => {
     if(interval !== null) clearInterval(interval);
 })
+
+function closeOffice(): void {
+  fetch(`http://localhost:3000/fechar-office`,{ method: "POST" })
+  .then(response => response.json())
+  .then((response) => {
+    console.log(response)
+    modalDoc.value = false
+  })
+  .catch((error) => {
+    console.log(error)
+  })
+}
 </script>
 
 <template>
     <main>
+        <div v-if="modalDoc" class="modal-close-doc">
+            <div class="modal">
+                <h2>Fechar documento</h2>
+                <button @click="closeOffice">Fechar Office</button>
+            </div>
+        </div>
         <section class="py-[100px]">
             <div class="container mx-auto px-3">
                 <div v-if="fileFlag !== null && fileFlag.type === 'pdf'" class="pdf_reader">
@@ -158,6 +177,22 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+    .modal-close-doc{
+        @apply
+        fixed
+        w-screen
+        h-screen
+        top-0
+        left-0
+        bg-[#000]/50
+        z-[10000]
+        flex
+        items-center
+        justify-center
+    }
+    .modal{
+        @apply bg-white rounded-md w-full max-w-[600px] px-6 py-9 shadow-md shadow-gray-500;
+    }
     .img_view,
     .pdf_reader,
     .video_view{

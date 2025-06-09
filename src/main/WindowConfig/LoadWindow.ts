@@ -46,6 +46,10 @@ function createWindow() {
             console.error('Failed to open file:', err);
         });
     })
+
+    // ipcMain.on("close-file", () => {
+
+    // })
 }
 
 export function LoadWindow() {
