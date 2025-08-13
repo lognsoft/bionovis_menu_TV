@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, Ref, watch } from "vue";
+import { onMounted, onBeforeUnmount, ref, Ref } from "vue";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import { storeToRefs } from "pinia";
 import Player from "@renderer/components/Player.vue";
@@ -17,6 +17,7 @@ import WebP from "@renderer/components/icons/type_doc/WebP.vue";
 import PNG from "@renderer/components/icons/type_doc/PNG.vue";
 import JPG from "@renderer/components/icons/type_doc/JPG.vue";
 import Play from "@renderer/components/icons/type_doc/Play.vue";
+import Loading from "@renderer/components/icons/Loading.vue";
 
 const props = defineProps<{files:string}>();
 
@@ -40,12 +41,13 @@ const typesVideo:ReadonlyArray<string> = ["mp4", "ogg", "webm"];
 const formatedFiles:Ref<ReadonlyArray<FormatedType>> = ref([]);
 const filtered:Ref<ReadonlyArray<FormatedType>> = ref([]);
 const modalDoc:Ref<boolean> = ref(false)
+const isLoading:Ref<boolean> = ref(false)
 
 
 const getFiles: () => Promise<void> = async ():Promise<void> => {
+    
     const request = await fetch(`http://localhost:3000/presentations?optionMenu=${lang}/${dir}`);
     const data:ReadonlyArray<string> = await request.json();
-    
     constructObjects(data);
 }
 
@@ -81,19 +83,19 @@ const filterFiles: () => void = ():void => {
 }
 
 function openFile(file:string, objFile:FormatedType):void{
+    isLoading.value = true
     if(props.files === "docs" && objFile.type !== "pdf"){
         window.electron.ipcRenderer.send("open-file", file);
         modalDoc.value = true
-        return;
     } else {
         fileFlag.value = objFile;
-        return;
     }
+    isLoading.value = false
 }
 
-watch(() => props.files, () => {
+// watch(() => props.files, () => {
 
-})
+// })
 
 function closeModal():void{
     fileFlag.value = null;
@@ -111,24 +113,33 @@ onBeforeUnmount(() => {
 })
 
 function closeOffice(): void {
-  fetch(`http://localhost:3000/fechar-office`,{ method: "POST" })
-  .then(response => response.json())
-  .then((response) => {
-    console.log(response)
-    modalDoc.value = false
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+    isLoading.value = true
+    fetch(`http://localhost:3000/fechar-office`,{ method: "POST" })
+    .then(response => response.json())
+    .then((response) => {
+        console.log(response)
+        modalDoc.value = false
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    .finally(() => {
+        isLoading.value = false
+    })
 }
 </script>
 
 <template>
     <main>
+        <transition name="fade">
+            <div v-if="isLoading" class="overlay_loading">
+                <Loading />
+            </div>
+        </transition>
         <div v-if="modalDoc" class="modal-close-doc">
             <div class="modal">
                 <h2>Fechar documento</h2>
-                <button @click="closeOffice">Fechar Office</button>
+                <button class="button-confirm" @click="closeOffice">Fechar</button>
             </div>
         </div>
         <section class="py-[100px]">
@@ -177,6 +188,19 @@ function closeOffice(): void {
 </template>
 
 <style scoped>
+    .overlay_loading{
+        @apply
+        w-full
+        h-screen
+        fixed
+        bg-black/50
+        z-[11000]
+        flex
+        items-center
+        justify-center
+        text-[100px];
+    }
+
     .modal-close-doc{
         @apply
         fixed
@@ -190,9 +214,39 @@ function closeOffice(): void {
         items-center
         justify-center
     }
-    .modal{
-        @apply bg-white rounded-md w-full max-w-[600px] px-6 py-9 shadow-md shadow-gray-500;
+    .modal-close-doc .modal{
+        @apply
+        bg-white
+        rounded-md
+        w-full
+        max-w-[600px]
+        px-6
+        py-9
+        shadow-md
+        shadow-gray-500
+        text-center;
     }
+    .modal-close-doc .button-confirm{
+        @apply
+        text-white
+        bg-[#238eb7]
+        hover:text-[#238eb7]
+        hover:bg-white
+        px-[60px]
+        py-2
+        rounded-md
+        border-2
+        border-[#238eb7]
+        font-bold
+        duration-200
+        mt-3
+    }
+
+    .modal-close-doc h2{
+        @apply
+        font-semibold
+    }
+
     .img_view,
     .pdf_reader,
     .video_view{

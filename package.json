@@ -19,9 +19,9 @@
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "npm run build && electron-builder --mac",
     "build:linux": "npm run build && electron-builder --linux",
-    "build-package:win": "electron-packager . Bionovis --platform=win32 --arch=x64 --icon assets/icon.ico --out=packages",
-    "build-package:mac": "electron-packager . Bionovis --platform=darwin --arch=x64 --icon assets/icon.icns --out=packages",
-    "build-package:linux": "electron-packager . Bionovis --platform=linux --arch=x64 --icon assets/icon.png --out=packages"
+    "build-package:win": "yarn build && electron-packager . Bionovis --platform=win32 --arch=x64 --icon assets/icon.ico --out=packages",
+    "build-package:mac": "yarn build && electron-packager . Bionovis --platform=darwin --arch=x64 --icon assets/icon.icns --out=packages",
+    "build-package:linux": "yarn build && electron-packager . Bionovis --platform=linux --arch=x64 --icon assets/icon.png --out=packages"
   },
   "dependencies": {
     "@cycjimmy/jsmpeg-player": "^6.0.5",
