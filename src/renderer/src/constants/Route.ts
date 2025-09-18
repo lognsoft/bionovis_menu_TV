@@ -116,40 +116,57 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                     },
                 ]
             },
-        {
-            pathname:"Armazém Logística",
-            color: "#bbd62f",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-logistica",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#95d4db"
-                },
-                {
-                    path:"/videos/videos-Armazém_Logística",
-                    pathname:"Gravação das Câmeras",
-                    color:"#79adab"
-                },
-            ]
-        },
-        {
-            pathname:"Qualidade",
-            color: "#95d4db",
-            video:"",
-            subRoutes:[
-                {
-                    path:"/cams/streams-qualidade",
-                    pathname:"Câmeras ao Vivo",
-                    color:"#79adab"
-                },
-                {
-                    path:"/videos/videos-Qualidade",
-                    pathname:"Gravação das Câmeras",
-                    color:"#27747c"
-                },
-            ]
-        }
+            {
+                pathname:"Armazém Logística",
+                color: "#bbd62f",
+                video:"",
+                subRoutes:[
+                    {
+                        path:"/cams/streams-logistica",
+                        pathname:"Câmeras ao Vivo",
+                        color:"#95d4db"
+                    },
+                    {
+                        path:"/videos/videos-Armazém_Logística",
+                        pathname:"Gravação das Câmeras",
+                        color:"#79adab"
+                    },
+                ]
+            },
+            {
+                pathname:"Qualidade",
+                color: "#95d4db",
+                video:"",
+                subRoutes:[
+                    {
+                        path:"/cams/streams-qualidade",
+                        pathname:"Câmeras ao Vivo",
+                        color:"#79adab"
+                    },
+                    {
+                        path:"/videos/videos-qualidade",
+                        pathname:"Gravação das Câmeras",
+                        color:"#27747c"
+                    },
+                ]
+            },
+            {
+                pathname:"Suite B",
+                color: "#95d4db",
+                video:"",
+                subRoutes:[
+                    {
+                        path:"/cams/streams-suite-b",
+                        pathname:"Câmeras ao Vivo",
+                        color:"#79adab"
+                    },
+                    {
+                        path:"/videos/videos-suite-b",
+                        pathname:"Gravação das Câmeras",
+                        color:"#27747c"
+                    },
+                ]
+            }
         ]
     },
     {
@@ -352,6 +369,23 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                         path:"/videos/videos-Quality",
                         pathname:"Camera Recording",
                         color: "#27747c"
+                    },
+                ]
+            },
+            {
+                pathname:"Suite B",
+                color: "#95d4db",
+                video:"",
+                subRoutes:[
+                    {
+                        path:"/cams/streams-suite-b",
+                        pathname:"Live Cameras",
+                        color:"#79adab"
+                    },
+                    {
+                        path:"/videos/videos-suite-b",
+                        pathname:"Camera Recording",
+                        color:"#27747c"
                     },
                 ]
             }
