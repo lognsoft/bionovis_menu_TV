@@ -85,8 +85,12 @@ const filterFiles: () => void = ():void => {
 function openFile(file:string, objFile:FormatedType):void{
     isLoading.value = true
     if(props.files === "docs" && objFile.type !== "pdf"){
+        let timeout:ReturnType<typeof setTimeout> | null = null;
         window.electron.ipcRenderer.send("open-file", file);
-        modalDoc.value = true
+        timeout = setTimeout(() => {
+            modalDoc.value = true
+            if(timeout) clearTimeout(timeout)
+        },3000);
     } else {
         fileFlag.value = objFile;
     }
