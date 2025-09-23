@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref, Ref } from "vue";
+import { onMounted, onBeforeUnmount, ref, Ref, computed } from "vue";
 import useLanguageStore from "@renderer/stores/useLanguageStore";
 import { storeToRefs } from "pinia";
 import Player from "@renderer/components/Player.vue";
 import CloseBold from "@renderer/components/icons/CloseBold.vue";
+
+//From To
+import BionovisToPPT from "@renderer/assets/images/bionovisToPPT.png";
+import BionovisToWord from "@renderer/assets/images/bionovisToWord.png";
+import BionovisToExcel from "@renderer/assets/images/bionovisToExcel.png";
 
 //format files
 import PDF from "@renderer/components/icons/type_doc/PDF.vue";
@@ -31,6 +36,7 @@ const useLanguage = useLanguageStore();
 const { language } = storeToRefs(useLanguage);
 
 const fileFlag:Ref<FormatedType | null> = ref(null);
+const typeFile:Ref<string> = ref('');
 
 const lang = language.value === "default" ? "PT": "EN";
 const dir = language.value === "default" ? "Apresentações": "Presentations";
@@ -85,6 +91,7 @@ const filterFiles: () => void = ():void => {
 function openFile(file:string, objFile:FormatedType):void{
     isLoading.value = true
     if(props.files === "docs" && objFile.type !== "pdf"){
+        typeFile.value = objFile.type;
         let timeout:ReturnType<typeof setTimeout> | null = null;
         window.electron.ipcRenderer.send("open-file", file);
         timeout = setTimeout(() => {
@@ -96,10 +103,6 @@ function openFile(file:string, objFile:FormatedType):void{
     }
     isLoading.value = false
 }
-
-// watch(() => props.files, () => {
-
-// })
 
 function closeModal():void{
     fileFlag.value = null;
@@ -131,6 +134,27 @@ function closeOffice(): void {
         isLoading.value = false
     })
 }
+
+const modalDataObject = computed(() => {
+    const obj:{ image:string, button:string } = {
+        image: '',
+        button: 'Fechar'
+    }
+
+    if(typeFile.value.startsWith('ppt')){
+        obj.image = BionovisToPPT;
+        obj.button = 'Fechar PowerPoint';
+    } else if (typeFile.value.startsWith("doc")){
+        obj.image = BionovisToWord;
+        obj.button = 'Fechar Word';
+    } else {
+        obj.image = BionovisToExcel;
+        obj.button = 'Fechar Excel';
+    }
+
+    return obj;
+})
+
 </script>
 
 <template>
@@ -142,8 +166,9 @@ function closeOffice(): void {
         </transition>
         <div v-if="modalDoc" class="modal-close-doc">
             <div class="modal">
-                <h2>Fechar documento</h2>
-                <button class="button-confirm" @click="closeOffice">Fechar</button>
+                <img :src="modalDataObject.image" width="200"/>
+                <!--<h2>Fechar documento</h2>-->
+                <button class="button-confirm" @click="closeOffice">{{ modalDataObject.button }}</button>
             </div>
         </div>
         <section class="py-[100px]">
@@ -230,6 +255,14 @@ function closeOffice(): void {
         shadow-gray-500
         text-center;
     }
+    .modal-close-doc .modal img{
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+
     .modal-close-doc .button-confirm{
         @apply
         text-white
