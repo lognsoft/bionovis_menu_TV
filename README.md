@@ -25,7 +25,7 @@ Existem sessões onde são reproduzidos vídeos, como gravações de câmeras ou
 
 [Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_SUPPORTED_FORMATS.md)
 
-📘 **Configuração necessária:**  
+**Configuração necessária:**  
 Para que a reprodução de câmeras funcione corretamente, é preciso configurar a variável de ambiente que aponta para o arquivo `ffmpeg.exe`.
 
 [Guia de configuração](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/ENV_SETUP_CAMERA_PLAYBACK.md)
