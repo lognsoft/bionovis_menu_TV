@@ -166,6 +166,23 @@ const PortugueseRoutes:ReadonlyArray<IRoutes> = [
                         color:"#27747c"
                     },
                 ]
+            },
+            {
+                pathname:"Pipe",
+                color: "#95d4db",
+                video:"",
+                subRoutes:[
+                    {
+                        path:"/cams/streams-pipe",
+                        pathname:"Câmeras ao Vivo",
+                        color:"#79adab"
+                    },
+                    {
+                        path:"/videos/videos-pipe",
+                        pathname:"Gravação das Câmeras",
+                        color:"#27747c"
+                    },
+                ]
             }
         ]
     },
@@ -384,6 +401,23 @@ const EnglishRoutes:ReadonlyArray<IRoutes> = [
                     },
                     {
                         path:"/videos/videos-suite-b",
+                        pathname:"Camera Recording",
+                        color:"#27747c"
+                    },
+                ]
+            },
+            {
+                pathname:"Pipe",
+                color: "#95d4db",
+                video:"",
+                subRoutes:[
+                    {
+                        path:"/cams/streams-pipe",
+                        pathname:"Live Cameras",
+                        color:"#79adab"
+                    },
+                    {
+                        path:"/videos/videos-pipe",
                         pathname:"Camera Recording",
                         color:"#27747c"
                     },

@@ -366,6 +366,8 @@ type Stream = {
         port: 8118,
         image: ""
     },
+  ]
+  const streamsPipe:ReadonlyArray<Stream> = [
     {
         reference: {
             default: "PIPE | CORREDOR",
@@ -407,6 +409,7 @@ function GetAllCamsRoute(route:string) {
     routeMapHashTable[`streams-logistica`] = streamsLogistica;
     routeMapHashTable[`streams-qualidade`] = streamsQualidade;
     routeMapHashTable[`streams-suite-b`] = streamsSuiteB;
+    routeMapHashTable[`streams-pipe`] = streamsPipe;
 
 
     return routeMapHashTable[route];
