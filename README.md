@@ -13,7 +13,7 @@ Este projeto é um projeto desktop, o funcionamento é 100% local.
 
 ## Funcionalidades.
 
-### Cameras ao vivo.
+### Câmeras ao vivo.
 As câmeras de monitoramento interno só funcionarão se o programa estiver rodando dentro da mesma rede.
 
 [Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_LIVE_CAMERA.md)
@@ -24,6 +24,11 @@ As câmeras de monitoramento interno só funcionarão se o programa estiver roda
 Existem sessões onde são reproduzidos vídeos, como gravações de câmeras ou apresentações. Existe um limite de formatos que podem ser reproduzidos.
 
 [Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_SUPPORTED_FORMATS.md)
+
+**Configuração necessária:**  
+Para que a reprodução de câmeras funcione corretamente, é preciso configurar a variável de ambiente que aponta para o arquivo `ffmpeg.exe`.
+
+[Guia de configuração](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/ENV_SETUP_CAMERA_PLAYBACK.md)
 
 ---
 
@@ -48,9 +53,7 @@ Este menu é uma ferramenta para desktop; portanto, é necessário criar um inst
 
 ---
 
-### APIS.
+### APIs.
 Mesmo sendo uma aplicação desktop, dispomos de um backend e APIs para comunicação.
 
 [Documentação](https://github.com/lognsoft/bionovis_menu_TV/blob/Dev_2.0/documentation/README_APIS.md)
-
-
