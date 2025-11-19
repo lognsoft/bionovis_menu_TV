@@ -338,60 +338,89 @@ type Stream = {
         image:"165.png"
     }
   ];
-  const streamsSuiteB:ReadonlyArray<Stream> = [
+  const streamsSuiteB: ReadonlyArray<Stream> = [
     {
         reference: {
-            default: "Suite B",
-            english: "Suite B"
+        default: "Suite B",
+        english: "Suite B"
         },
-        url: "rtsp://tv:Bionovis@2024tv@172.16.0.209:554/cam/realmonitor?channel=1&subtype=0",
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.209:554/cam/realmonitor?channel=1&subtype=0",
         port: 8116,
         image: ""
     },
     {
         reference: {
-            default: "Suite B",
-            english: "Suite B"
+        default: "Suite B",
+        english: "Suite B"
         },
-        url: "rtsp://tv:Bionovis@2024tv@172.16.0.203:554/cam/realmonitor?channel=1&subtype=0",
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.203:554/cam/realmonitor?channel=1&subtype=0",
         port: 8117,
         image: ""
     },
     {
         reference: {
-            default: "Suite B",
-            english: "Suite B"
+        default: "Suite B",
+        english: "Suite B"
         },
-        url: "rtsp://tv:Bionovis@2024tv@172.16.0.207:554/cam/realmonitor?channel=1&subtype=0",
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.207:554/cam/realmonitor?channel=1&subtype=0",
         port: 8118,
         image: ""
     },
-  ]
+    ];
+//   const streamsSuiteB:ReadonlyArray<Stream> = [
+//     {
+//         reference: {
+//             default: "Suite B",
+//             english: "Suite B"
+//         },
+//         url: "rtsp://tv:Bionovis@2024tv@172.16.0.209:554/cam/realmonitor?channel=1&subtype=0",
+//         port: 8116,
+//         image: ""
+//     },
+//     {
+//         reference: {
+//             default: "Suite B",
+//             english: "Suite B"
+//         },
+//         url: "rtsp://tv:Bionovis@2024tv@172.16.0.203:554/cam/realmonitor?channel=1&subtype=0",
+//         port: 8117,
+//         image: ""
+//     },
+//     {
+//         reference: {
+//             default: "Suite B",
+//             english: "Suite B"
+//         },
+//         url: "rtsp://tv:Bionovis@2024tv@172.16.0.207:554/cam/realmonitor?channel=1&subtype=0",
+//         port: 8118,
+//         image: ""
+//     },
+//   ]
   const streamsPipe:ReadonlyArray<Stream> = [
     {
         reference: {
-            default: "PIPE | CORREDOR",
-            english: "PIPE | HALLWAY"
+        default: "PIPE | CORREDOR",
+        english: "PIPE | HALLWAY"
         },
-        url: "rtsp://tv:Bionovis@2024tv@172.16.0.159:554/cam/realmonitor?channel=1&subtype=0",
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.159:554/cam/realmonitor?channel=1&subtype=0",
         port: 8119,
         image: ""
     },
     {
         reference: {
-            default: "PIPE | BANCO DE CÉLULAS",
-            english: "PIPE | CELL BANK"
+        default: "PIPE | BANCO DE CÉLULAS",
+        english: "PIPE | CELL BANK"
         },
-        url: "rtsp://tv:Bionovis@2024tv@172.16.0.160:554/cam/realmonitor?channel=1&subtype=0",
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.160:554/cam/realmonitor?channel=1&subtype=0",
         port: 8120,
         image: ""
     },
     {
         reference: {
-            default: "PIPE | BANCO DE CÉLULAS",
-            english: "PIPE | CELL BANK"
+        default: "PIPE | BANCO DE CÉLULAS",
+        english: "PIPE | CELL BANK"
         },
-        url: "rtsp://tv:Bionovis@2024tv@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
         port: 8121,
         image: ""
     }
