@@ -415,15 +415,15 @@ type Stream = {
         port: 8120,
         image: ""
     },
-    {
-        reference: {
-        default: "PIPE | BANCO DE CÉLULAS",
-        english: "PIPE | CELL BANK"
-        },
-        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
-        port: 8121,
-        image: ""
-    }
+    // {
+    //     reference: {
+    //     default: "PIPE | BANCO DE CÉLULAS",
+    //     english: "PIPE | CELL BANK"
+    //     },
+    //     url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
+    //     port: 8121,
+    //     image: ""
+    // }
   ]
 
 function GetAllCamsRoute(route:string) {
@@ -446,7 +446,7 @@ function GetAllCamsRoute(route:string) {
 
 function WebsocketRun(){
 
-    const streams = [...streamsPreparations, ...streamsUpstreams, ...streamsDownStreams, ...streamsAreaPassagem, ...streamsFillAndFinish, ...streamsEmbalagemSecundaria, ...streamsLogistica, ...streamsQualidade, ...streamsSuiteB];
+    const streams = [...streamsPreparations, ...streamsUpstreams, ...streamsDownStreams, ...streamsAreaPassagem, ...streamsFillAndFinish, ...streamsEmbalagemSecundaria, ...streamsLogistica, ...streamsQualidade, ...streamsSuiteB, ...streamsPipe];
 
         streams.forEach(stream => {
         const server = new websocket.Server({ port: stream.port });
