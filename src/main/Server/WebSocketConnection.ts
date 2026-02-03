@@ -346,7 +346,7 @@ type Stream = {
         },
         url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.209:554/cam/realmonitor?channel=1&subtype=0",
         port: 8116,
-        image: ""
+        image: "209.jpg"
     },
     {
         reference: {
@@ -355,7 +355,7 @@ type Stream = {
         },
         url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.203:554/cam/realmonitor?channel=1&subtype=0",
         port: 8117,
-        image: ""
+        image: "203.jpg"
     },
     {
         reference: {
@@ -364,7 +364,7 @@ type Stream = {
         },
         url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.207:554/cam/realmonitor?channel=1&subtype=0",
         port: 8118,
-        image: ""
+        image: "207.jpg"
     },
     ];
 //   const streamsSuiteB:ReadonlyArray<Stream> = [
@@ -404,7 +404,7 @@ type Stream = {
         },
         url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.159:554/cam/realmonitor?channel=1&subtype=0",
         port: 8119,
-        image: ""
+        image: "159.png"
     },
     {
         reference: {
@@ -413,17 +413,17 @@ type Stream = {
         },
         url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.160:554/cam/realmonitor?channel=1&subtype=0",
         port: 8120,
-        image: ""
+        image: "160.png"
     },
-    // {
-    //     reference: {
-    //     default: "PIPE | BANCO DE CÉLULAS",
-    //     english: "PIPE | CELL BANK"
-    //     },
-    //     url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
-    //     port: 8121,
-    //     image: ""
-    // }
+    {
+        reference: {
+        default: "PIPE | BANCO DE CÉLULAS",
+        english: "PIPE | CELL BANK"
+        },
+        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
+        port: 8121,
+        image: "161.png"
+    }
   ]
 
 function GetAllCamsRoute(route:string) {

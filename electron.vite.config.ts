@@ -10,21 +10,22 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    root: resolve(__dirname, "src/renderer"),
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/src')
       }
     },
     plugins: [vue()],
-    server:{
-      fs:{
-        allow: [
-          'c:/',
-          'd:/',
-          'C:/',
-          'D:/'
-        ]
-      }
-    }
+    // server:{
+    //   fs:{
+    //     allow: [
+    //       'c:/',
+    //       'd:/',
+    //       'C:/',
+    //       'D:/'
+    //     ]
+    //   }
+    // }
   }
 })
