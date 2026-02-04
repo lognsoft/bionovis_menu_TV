@@ -415,15 +415,15 @@ type Stream = {
         port: 8120,
         image: "160.png"
     },
-    {
-        reference: {
-        default: "PIPE | BANCO DE CÉLULAS",
-        english: "PIPE | CELL BANK"
-        },
-        url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
-        port: 8121,
-        image: "161.png"
-    }
+    // {
+    //     reference: {
+    //     default: "PIPE | BANCO DE CÉLULAS",
+    //     english: "PIPE | CELL BANK"
+    //     },
+    //     url: "rtsp://tv:Bionovis%402024tv%40@172.16.0.161:554/cam/realmonitor?channel=1&subtype=0",
+    //     port: 8121,
+    //     image: "161.png"
+    // }
   ]
 
 function GetAllCamsRoute(route:string) {
